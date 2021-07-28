@@ -1,0 +1,25 @@
+.footer {
+	height: 95px;
+	padding: 10px 0;
+
+  // .footer__inner
+
+  &__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+  }
+
+  // .footer__copy
+
+  &__copy {
+		font-family: 'Cyberpunk', sans-serif;
+
+		font-size: 2.5rem;
+		line-height: 3 / 2.5 + em;
+		color: #fff;
+		text-align: center;
+  }
+}
+.container {
+}

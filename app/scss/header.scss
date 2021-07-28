@@ -1,0 +1,27 @@
+@keyframes headerRun {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-5000px + 100vw));
+	}
+}
+
+.header {
+	position: sticky;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	overflow-x: hidden;
+
+  // .header__run
+
+  &__run {
+		width: 5000px;
+		height: 15px;
+
+		background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,171,0,1) 16%, rgba(112,255,0,1) 33%, rgba(0,255,175,1) 49%, rgba(0,79,246,1) 66%, rgba(196,0,249,1) 82%, rgba(255,0,0,1) 100%);
+
+		animation: headerRun 50s infinite linear alternate;
+  }
+}
