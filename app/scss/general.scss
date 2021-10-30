@@ -1,6 +1,17 @@
 .wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
 	position: relative;
 	z-index: 1000;
+}
+
+.container {
+	max-width: 1240px;
+	width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
 }
 
 .btn {
@@ -10,4 +21,33 @@
 	background-color: transparent;
 	cursor: pointer;
 	overflow: hidden;
+}
+
+@keyframes runline {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(calc(-5000px + 100vw));
+	}
+}
+
+.runline-wrapper {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 3px;
+
+	height: calc(100vh);
+	width: 3px;
+	overflow: hidden
+}
+
+.runline {
+	width: 50px;
+	height: 5000px;
+
+	background: linear-gradient(0deg, rgba(255, 0, 0, 1) 0%, rgba(255, 171, 0, 1) 16%, rgba(112, 255, 0, 1) 33%, rgba(0, 255, 175, 1) 49%, rgba(0, 79, 246, 1) 66%, rgba(196, 0, 249, 1) 82%, rgba(255, 0, 0, 1) 100%);
+
+	animation: runline 30s infinite linear alternate;
 }
