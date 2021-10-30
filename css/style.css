@@ -427,7 +427,7 @@ body.touch *:focus {
   content: '';
   position: absolute;
   left: 0;
-  top: 50%;
+  top: .9em;
   -webkit-transform: translate(-100%, -50%);
       -ms-transform: translate(-100%, -50%);
           transform: translate(-100%, -50%);
@@ -462,7 +462,7 @@ body.touch *:focus {
   left: 0;
   top: 0;
   width: 100%;
-  padding: 5px 0;
+  padding: 5px 5px;
   background-color: rgba(0, 0, 0, 0.55);
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
