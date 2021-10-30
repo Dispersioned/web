@@ -5,10 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+		<!-- topics -->
 		<title>Dispersioned</title>
 		<meta name="description" content="Вебсайт frontend разработчика Dispersioned" />
 		<meta name="keywords" content="html, css, scss, BEM, gulp, portfolio, верстка, разработка сайтов" />
 
+		<!-- meta -->
 		<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png" />
@@ -17,16 +19,37 @@
 		<meta name="msapplication-TileColor" content="#b91d47" />
 		<meta name="theme-color" content="#1a1a1a" />
 
+		<!-- fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="css/style.min.css" />
 	</head>
 	<body>
-		@@include('_header.html')
-		@@include('_works.html')
-		@@include('_footer.html')
+		<div class="wrapper">
+			@@include('_header.html')
+			<div class="main">
+				<section class="works">
+					<div class="container">
+						<div class="works__body">
+							<div class="works__list">
+								<div class="works__item">
+									<div class="works__item-img">
+										<img src="img/works/works-1.jpg" alt="Cloverly" />
+									</div>
+									<div class="works__item-description">
+										<a href="https://dispersioned.github.io/web-cloverly/" class="works__item-link"><h2 class="works__item-title">Cloverly</h2></a>
+										<p class="works__item-text">Carbon-free platform</p>
+									</div>
+								</div><!-- /works__item -->
+							</div><!-- /.works__list -->
+						</div><!-- /.works__body -->
+					</div><!-- /.container -->
+				</section><!-- /.works -->
+			</div>
+			@@include('_footer.html')
+		</div>
 
 		<script src="js/script.min.js"></script>
 	</body>

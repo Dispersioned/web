@@ -1,0 +1,13 @@
+.wrapper {
+	position: relative;
+	z-index: 1000;
+}
+
+.btn {
+	position: relative;
+	display: inline-block;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	overflow: hidden;
+}
