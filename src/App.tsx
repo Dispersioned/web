@@ -1,11 +1,13 @@
 import React from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './assets/fonts/index'
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import GlobalStyle from './style/global'
 import Home from './views/Home/Home'
 
 function App() {
   return (
     <>
+      <GlobalStyle />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
