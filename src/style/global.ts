@@ -196,11 +196,10 @@ const GlobalStyle = createGlobalStyle`
 
 export const Wrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  padding-top: 165px;
 `
-
-export const PageContent = styled.div`
-  margin-top: 165px;
-`;
 
 export default GlobalStyle
