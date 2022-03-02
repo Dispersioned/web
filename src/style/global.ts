@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 const resetStyles = css`
   /* Global */
@@ -165,6 +165,17 @@ const resetStyles = css`
 
 const GlobalStyle = createGlobalStyle`
   ${resetStyles}
+
+  body {
+    background-color: #222222;
+    font-family: 'Goudy Bookletter', 'serif';
+    font-size: 19px;
+  }
+`
+
+export const Wrapper = styled.div`
+  position: relative;
+  min-height: 100vh;
 `
 
 export default GlobalStyle
