@@ -167,9 +167,30 @@ const GlobalStyle = createGlobalStyle`
   ${resetStyles}
 
   body {
+    color: white;
     background-color: #222222;
     font-family: 'Goudy Bookletter', 'serif';
     font-size: 19px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 45px;
+  }
+
+  h3 {
+    font-size: 38px;
+  }
+
+  h4 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 25px;
   }
 `
 
@@ -177,5 +198,9 @@ export const Wrapper = styled.div`
   position: relative;
   min-height: 100vh;
 `
+
+export const PageContent = styled.div`
+  margin-top: 165px;
+`;
 
 export default GlobalStyle
