@@ -26,7 +26,7 @@ export const Body = styled.div`
 
 export const Logo = styled.img`
   display: inline-block;
-  width: 70px;
+  min-width: 70px;
   height: 90px;
 `
 
