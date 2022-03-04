@@ -7,7 +7,7 @@ import Projects from './views/Projects/Projects'
 
 function App() {
   return (
-    <>
+    <div style={{ paddingRight: 16 }}>
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
@@ -18,7 +18,7 @@ function App() {
           <Route path="/*" element={<Navigate replace to="/" />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 
