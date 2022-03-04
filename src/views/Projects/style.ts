@@ -15,8 +15,7 @@ export const Card = styled.div`
   grid-template-columns: 4fr 5fr;
   grid-auto-flow: column;
   justify-content: space-between;
-  column-gap: 50px;
-  row-gap: 30px;
+  grid-gap: 50px;
 
   @media (max-width: 991px) {
     grid-template-columns: 1fr;
@@ -53,6 +52,10 @@ export const Info = styled.div`
   align-items: flex-start;
   padding-left: 50px;
 
+  @media (max-width: 565px) {
+    padding-left: 35px;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -62,6 +65,13 @@ export const Info = styled.div`
     height: 20px;
     border-radius: 50%;
     background: #fff;
+
+    @media (max-width: 565px) {
+      left: 7px;
+      top: 0.8em;
+      width: 14px;
+      height: 14px;
+    }
   }
 `
 
