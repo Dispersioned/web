@@ -175,10 +175,28 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: 60px;
+    @media (max-width: 991px) {
+      font-size: 52px;
+    }
+    @media (max-width: 767px) {
+      font-size: 48px;
+    }
+    @media (max-width: 575px) {
+      font-size: 44px;
+    }
   }
 
   h2 {
     font-size: 45px;
+    @media (max-width: 991px) {
+      font-size: 42px;
+    }
+    @media (max-width: 767px) {
+      font-size: 38px;
+    }
+    @media (max-width: 575px) {
+      font-size: 34px;
+    }
   }
 
   h3 {
@@ -191,6 +209,9 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     font-size: 25px;
+    @media (max-width: 767px) {
+      font-size: 22px;
+    }
   }
 `
 
