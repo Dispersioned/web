@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Header = styled.div`
@@ -38,11 +39,15 @@ export const Navbar = styled.div`
   grid-gap: 50px;
 `
 
-export const Navlink = styled.div`
+export const Navlink = styled(NavLink)`
   position: relative;
   color: #fff;
   font-size: 30px;
   transition: all 0.3s ease;
+
+  &.active {
+    font-weight: 700;
+  }
 
   &::before {
     content: '';

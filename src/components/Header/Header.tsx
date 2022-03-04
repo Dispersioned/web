@@ -1,9 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import logo from '../../assets/img/logo.svg'
 import Container from '../Container/Container'
 import * as S from './style'
-import logo from '../../assets/img/logo.svg'
-import { Link } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
 
 const Header: React.FC = () => {
   return (
@@ -14,15 +13,9 @@ const Header: React.FC = () => {
             <S.Logo src={logo} alt="Dispersioned logo" />
           </Link>
           <S.Navbar>
-            <NavLink to="/projects">
-              <S.Navlink>Projects</S.Navlink>
-            </NavLink>
-            <NavLink to="/experience">
-              <S.Navlink>Work Experience</S.Navlink>
-            </NavLink>
-            <NavLink to="/bio">
-              <S.Navlink>Bio</S.Navlink>
-            </NavLink>
+            <S.Navlink to="/projects">Projects</S.Navlink>
+            <S.Navlink to="/experience">Work Experience</S.Navlink>
+            <S.Navlink to="/bio">Bio</S.Navlink>
           </S.Navbar>
         </S.Body>
       </Container>
