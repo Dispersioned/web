@@ -221,6 +221,10 @@ export const Wrapper = styled.div`
   flex-direction: column;
   min-height: 100vh;
   padding-top: 165px;
+  
+  @media (max-width: 767px) {
+    padding-top: 120px;
+  }
 `
 
 export default GlobalStyle

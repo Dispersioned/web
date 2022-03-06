@@ -1,14 +1,15 @@
 import React from 'react'
-import './style.module.css'
+import * as S from './style'
 
-interface BurgerIconProps {
-  className?: string
+interface BurgerBtnProps {
+  onClick: () => void
+  isActive: boolean
 }
 
-const BurgerIcon: React.FC<BurgerIconProps> = ({ className }) => {
+const BurgerBtn: React.FC<BurgerBtnProps> = ({ onClick, isActive }) => {
   return (
-    <div className={className}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 200 200">
+    <S.Wrapper onClick={onClick} className={isActive ? 'active' : ''}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <g stroke-width="6.5" stroke-linecap="round">
           <path d="M72 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#fff" />
           <path
@@ -26,7 +27,7 @@ const BurgerIcon: React.FC<BurgerIconProps> = ({ className }) => {
           <path d="M100.75 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#fff" />
         </g>
       </svg>
-    </div>
+    </S.Wrapper>
   )
 }
-export default BurgerIcon
+export default BurgerBtn

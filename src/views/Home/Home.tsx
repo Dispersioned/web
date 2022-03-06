@@ -10,7 +10,9 @@ const Home: React.FC = () => {
       <Header />
       <Container>
         <h1 style={{ fontWeight: 400 }}>Hi, I’m Max. A student frontend developer </h1>
-        <p>So far there is no important information here, yet you can see my projects.</p>
+        <p style={{ paddingTop: 25 }}>
+          So far there is no important information here, yet you can see my projects.
+        </p>
       </Container>
       <Footer />
     </Wrapper>
