@@ -165,54 +165,6 @@ const resetStyles = css`
 
 const GlobalStyle = createGlobalStyle`
   ${resetStyles}
-
-  body {
-    color: white;
-    background-color: #222222;
-    font-family: 'Goudy Bookletter', 'serif';
-    font-size: 19px;
-  }
-
-  h1 {
-    font-size: 60px;
-    @media (max-width: 991px) {
-      font-size: 52px;
-    }
-    @media (max-width: 767px) {
-      font-size: 48px;
-    }
-    @media (max-width: 575px) {
-      font-size: 44px;
-    }
-  }
-
-  h2 {
-    font-size: 45px;
-    @media (max-width: 991px) {
-      font-size: 42px;
-    }
-    @media (max-width: 767px) {
-      font-size: 38px;
-    }
-    @media (max-width: 575px) {
-      font-size: 34px;
-    }
-  }
-
-  h3 {
-    font-size: 38px;
-  }
-
-  h4 {
-    font-size: 32px;
-  }
-
-  p {
-    font-size: 25px;
-    @media (max-width: 767px) {
-      font-size: 22px;
-    }
-  }
 `
 
 export default GlobalStyle
