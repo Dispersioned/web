@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { SECTIONS } from '../../config'
-import { closestCell, getRandomPhrase } from '../../services/Dice'
+import { closestCell, WelcomeGenerator } from '../../services/Dice'
 import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
 import { DiceProps, ICell, ITable } from './interface'
 import { Cell, GridLayer, Pointer, Wrapper } from './style'
@@ -70,7 +70,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
     const { row, col } = closestCell(point, cells)
     setSelectedCell({ row, col })
     if (cellText[row][col]) setTitle(cellText[row][col] as string)
-    else setTitle(getRandomPhrase())
+    else setTitle(WelcomeGenerator.generate())
     const salt = Math.random() // needed for framer motion to recognize small movements
     const pointerBugOffset = -3
 

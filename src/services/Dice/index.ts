@@ -17,8 +17,8 @@ export function closestCell(point: ICell, cells: ITable) {
   }
 }
 
-export function getRandomPhrase(): string {
-  const phrases = [
+export class WelcomeGenerator {
+  static phrases = [
     'Hola!',
     'Bonjour!',
     'Guten tag!',
@@ -37,5 +37,14 @@ export function getRandomPhrase(): string {
     'Zdravo!',
   ]
 
-  return phrases[Math.floor(Math.random() * phrases.length)]
+  static available = [...WelcomeGenerator.phrases]
+
+  static generate() {
+    const phrase =
+      WelcomeGenerator.available[Math.floor(Math.random() * WelcomeGenerator.available.length)]
+
+    if (WelcomeGenerator.available.length === 0)
+      WelcomeGenerator.available = [...WelcomeGenerator.phrases]
+    return phrase
+  }
 }
