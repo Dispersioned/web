@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material'
+import { PanInfo } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { closestCell } from '../../services/Dice'
 import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
@@ -15,28 +16,20 @@ const cellText: (string | null)[][] = [
 const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
   const [cells, setCells] = useState<ITable>()
 
-  const [point, setPoint] = useState<{ x: number; y: number }>()
-  const [animateTo, setAnimateTo] = useState<{ x: number; y: number }>()
-  const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null)
-  const [zeroPoint, setZeroPoint] = useState<ICell | null>(null)
+  const [point, setPoint] = useState<ICell>()
+  const [animateTo, setAnimateTo] = useState<ICell>()
+  const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null) // framer-motion and local coords offset
+  const [zeroPoint, setZeroPoint] = useState<ICell | null>(null) // top left grid cell
 
   useEffect(() => {
     // mock offset. Will be inited properly on first drag
     setOffset({ x: window.innerWidth / 2, y: window.innerHeight / 2, settled: false })
   }, [])
 
-  useEffect(() => {
-    if (!point || !cells || !offset) return
-
-    const { row, col } = closestCell(point, cells)
-    const salt = Math.random() // needed for framer motion to recognize small movements
-    const pointerBugOffset = -3
-
-    setAnimateTo({
-      x: cells[row][col].x - offset.x + salt + pointerBugOffset,
-      y: cells[row][col].y - offset.y + salt + pointerBugOffset,
-    })
-  }, [point])
+  const handleInitOffset = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (!offset || offset.settled) return
+    setOffset({ x: info.point.x, y: info.point.y, settled: true })
+  }
 
   useEffect(() => {
     if (!offset) return
@@ -68,6 +61,19 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
     setCells(newCells)
   }, [zeroPoint])
 
+  useEffect(() => {
+    if (!point || !cells || !offset) return
+
+    const { row, col } = closestCell(point, cells)
+    const salt = Math.random() // needed for framer motion to recognize small movements
+    const pointerBugOffset = -3
+
+    setAnimateTo({
+      x: cells[row][col].x - offset.x + salt + pointerBugOffset,
+      y: cells[row][col].y - offset.y + salt + pointerBugOffset,
+    })
+  }, [point])
+
   return (
     <Wrapper ref={dragWrapperRef}>
       <GridLayer>
@@ -91,11 +97,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
         dragMomentum={false}
         initial={{ x: -3, y: -3 }}
         animate={animateTo}
-        onDragStart={(event, info) =>
-          (offset && offset.settled) ||
-          setOffset({ x: info.point.x, y: info.point.y, settled: true })
-        }
-        // onDrag={(event, info) => console.log(info.point.x, info.point.y)}
+        onDragStart={handleInitOffset}
         onDragEnd={(event, info) => setPoint({ x: info.point.x, y: info.point.y })}
         dragConstraints={dragWrapperRef}
         whileDrag={{ backgroundColor: '#9f9f9f' }}
