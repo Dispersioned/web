@@ -1,10 +1,16 @@
-import { Typography } from '@mui/material'
+import { motion } from 'framer-motion'
 import React from 'react'
 import { Paragraph } from '../../style/global'
 
 const AboutMe: React.FC = () => {
   return (
-    <>
+    <motion.div
+      key="about-me-section"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <Paragraph>
         Hi there. My name’s Max, an ordinary fellow with aptitude for technical sciences.
       </Paragraph>
@@ -13,7 +19,7 @@ const AboutMe: React.FC = () => {
         engineering at DSTU.
       </Paragraph>
       <Paragraph>Love building custom keyboards and handcraft useful items.</Paragraph>
-    </>
+    </motion.div>
   )
 }
 export default AboutMe
