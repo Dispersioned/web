@@ -1,5 +1,4 @@
 export interface DiceProps {
-  dragWrapperRef: React.MutableRefObject<null>
   setTitle: React.Dispatch<React.SetStateAction<string>>
 }
 

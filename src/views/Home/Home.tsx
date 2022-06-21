@@ -1,10 +1,8 @@
 import { Container, Grid, Typography } from '@mui/material'
-import { motion } from 'framer-motion'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Dice from '../../components/Dice/Dice'
 
 const Home: React.FC = () => {
-  const dragWrapper = useRef(null)
   const [title, setTitle] = useState('Hello!')
 
   return (
@@ -24,7 +22,7 @@ const Home: React.FC = () => {
               <Typography variant="h1">{title}</Typography>
             </Grid>
             <Grid item>
-              <Dice dragWrapperRef={dragWrapper} setTitle={setTitle} />
+              <Dice setTitle={setTitle} />
             </Grid>
           </Grid>
         </Grid>

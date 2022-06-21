@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { SECTIONS } from '../../config'
 import { closestCell, getRandomPhrase } from '../../services/Dice'
 import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
@@ -9,12 +9,13 @@ import { Cell, GridLayer, Pointer, Wrapper } from './style'
 
 // must be square
 const cellText: (string | null)[][] = [
-  [SECTIONS.ABOUT_ME, null,SECTIONS.PROJECTS],
+  [SECTIONS.ABOUT_ME, null, SECTIONS.PROJECTS],
   [null, null, null],
   [SECTIONS.SKILLS, null, SECTIONS.EXPERIENCE],
 ]
 
-const Dice: React.FC<DiceProps> = ({ dragWrapperRef, setTitle }) => {
+const Dice: React.FC<DiceProps> = ({ setTitle }) => {
+  const dragWrapper = useRef(null)
   const [cells, setCells] = useState<ITable>()
 
   const [point, setPoint] = useState<ICell>()
@@ -80,7 +81,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef, setTitle }) => {
   }, [point])
 
   return (
-    <Wrapper ref={dragWrapperRef}>
+    <Wrapper ref={dragWrapper}>
       <GridLayer>
         {cells &&
           cells.map((row, y) =>
@@ -109,7 +110,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef, setTitle }) => {
         animate={animateTo}
         onDragStart={handleInitOffset}
         onDragEnd={(event, info) => setPoint({ x: info.point.x, y: info.point.y })}
-        dragConstraints={dragWrapperRef}
+        dragConstraints={dragWrapper}
         whileDrag={{ backgroundColor: '#9f9f9f' }}
         dragTransition={{ bounceStiffness: 200, bounceDamping: 20 }}
       >
