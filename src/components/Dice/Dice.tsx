@@ -1,53 +1,36 @@
-import { motion } from 'framer-motion'
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import './style.css'
-
-interface DiceProps {
-  dragWrapperRef: React.MutableRefObject<null>
-}
-
-const DICE_SIZE = '370px'
-
-const Wrapper = styled.div`
-  position: relative;
-  width: ${DICE_SIZE};
-  height: ${DICE_SIZE};
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-`
-
-const GridLayer = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: grid;
-  grid-gap: 4px;
-  grid-template-columns: ${`repeat(3, calc(${DICE_SIZE} / 3 - 4px))`};
-  grid-template-rows: ${`repeat(3, calc(${DICE_SIZE} / 3 - 4px))`};
-`
-
-const Cell = styled.div`
-  background-color: #efefef;
-  border-radius: 5px;
-`
+import React, { useEffect, useState } from 'react'
+import { closestCell } from '../../services/Dice'
+import { CELLS, OFFSET } from '../../services/Dice/consts'
+import { DiceProps, ICells } from './interface'
+import { Cell, GridLayer, Pointer, Wrapper } from './style'
 
 const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
-  const [cells, setCells] = useState([
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ])
+  const [cells, setCells] = useState<ICells>(CELLS)
+
+  const [coords, setCoords] = useState<{ x: number; y: number }>()
+  const [animateTo, setAnimateTo] = useState<{ x: number; y: number }>()
+
+  useEffect(() => {
+    if (!coords) return
+    const { row, col } = closestCell(coords, cells)
+    const salt = Math.random()
+    const pointerBugOffset = -3
+
+    setAnimateTo({
+      x: cells[row][col].x - OFFSET.x + salt + pointerBugOffset,
+      y: cells[row][col].y - OFFSET.y + salt + pointerBugOffset,
+    })
+  }, [coords])
 
   return (
     <Wrapper ref={dragWrapperRef}>
       <GridLayer>{cells.map((row, y) => row.map((_, x) => <Cell key={`${y}_${x}`} />))}</GridLayer>
-      <motion.div
-        className="dice"
+      <Pointer
         drag
+        dragMomentum={false}
+        initial={{ x: -3, y: -3 }}
+        animate={animateTo}
+        onDragEnd={(event, info) => setCoords({ x: info.point.x, y: info.point.y })}
         dragConstraints={dragWrapperRef}
         whileDrag={{ backgroundColor: '#9f9f9f' }}
         dragTransition={{ bounceStiffness: 200, bounceDamping: 20 }}
