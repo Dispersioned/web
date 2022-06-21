@@ -16,7 +16,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
   const [cells, setCells] = useState<ITable>()
 
   const [point, setPoint] = useState<{ x: number; y: number }>()
-  const [animateTo, setAnimateTo] = useState<{ x: number; y: number }>({ x: -3, y: -3 })
+  const [animateTo, setAnimateTo] = useState<{ x: number; y: number }>()
   const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null)
   const [zeroPoint, setZeroPoint] = useState<ICell | null>(null)
 
@@ -80,7 +80,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
                   zIndex={100}
                   style={{ pointerEvents: 'none', userSelect: 'none' }}
                 >
-                  {cellText[x][y]}
+                  {cellText[y][x]}
                 </Typography>
               </Cell>
             ))
