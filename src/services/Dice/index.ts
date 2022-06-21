@@ -43,6 +43,7 @@ export class WelcomeGenerator {
     const phrase =
       WelcomeGenerator.available[Math.floor(Math.random() * WelcomeGenerator.available.length)]
 
+    WelcomeGenerator.available = WelcomeGenerator.available.filter((x) => x !== phrase)
     if (WelcomeGenerator.available.length === 0)
       WelcomeGenerator.available = [...WelcomeGenerator.phrases]
     return phrase
