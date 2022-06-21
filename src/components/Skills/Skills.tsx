@@ -18,12 +18,8 @@ const Skills: React.FC = () => {
         <SkillItem label="TypeScript" />
         <SkillItem label="ES6+" />
         <SkillItem label="Material UI" />
-        <SkillItem label="Styled Components" />
-      </Box>
-
-      <Box marginBottom={2}>
-        <Typography variant="h4">Know and use</Typography>
         <SkillItem label="HTML" />
+        <SkillItem label="Styled Components" />
         <SkillItem label="SCSS" />
         <SkillItem label="GraphQL" />
         <SkillItem label="Git" />
@@ -37,6 +33,10 @@ const Skills: React.FC = () => {
         <SkillItem label="Python" />
         <SkillItem label="Java" />
         <SkillItem label="Netlify CMS" />
+        <SkillItem label="Firebase" />
+        <SkillItem label="Axios" />
+        <SkillItem label="Mobx" />
+        <SkillItem label="Gatsby" />
       </Box>
     </motion.div>
   )
