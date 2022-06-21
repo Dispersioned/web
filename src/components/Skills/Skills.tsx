@@ -36,6 +36,7 @@ const Skills: React.FC = () => {
         <Typography variant="h4">Worked with</Typography>
         <SkillItem label="Python" />
         <SkillItem label="Java" />
+        <SkillItem label="Netlify CMS" />
       </Box>
     </motion.div>
   )
