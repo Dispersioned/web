@@ -1,56 +1,104 @@
 import { Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { closestCell } from '../../services/Dice'
-import { CELLS, OFFSET } from '../../services/Dice/consts'
-import { DiceProps, ITable } from './interface'
+import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
+import { DiceProps, ICell, ITable } from './interface'
 import { Cell, GridLayer, Pointer, Wrapper } from './style'
 
-const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
-  const [cells, setCells] = useState<ITable>(CELLS)
+const cellText = [
+  ['About me', null, 'Projects'],
+  [null, null, null],
+  ['Skills', null, 'Experience'],
+]
 
-  const [cellText, setCellText] = useState([
-    ['About me', null, 'Projects'],
-    [null, null, null],
-    ['Skills', null, 'Experience'],
-  ])
+const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
+  const [cells, setCells] = useState<ITable>()
 
   const [point, setPoint] = useState<{ x: number; y: number }>()
-  const [animateTo, setAnimateTo] = useState<{ x: number; y: number }>()
+  const [animateTo, setAnimateTo] = useState<{ x: number; y: number }>({ x: -3, y: -3 })
+  const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null)
+  const [zeroPoint, setZeroPoint] = useState<ICell | null>(null)
 
   useEffect(() => {
-    if (!point) return
+    // mock offset. Will be inited properly on first drag
+    setOffset({ x: window.innerWidth / 2, y: window.innerHeight / 2, settled: false })
+  }, [])
+
+  useEffect(() => {
+    if (!point || !cells || !offset) return
+
     const { row, col } = closestCell(point, cells)
     const salt = Math.random() // needed for framer motion to recognize small movements
     const pointerBugOffset = -3
 
     setAnimateTo({
-      x: cells[row][col].x - OFFSET.x + salt + pointerBugOffset,
-      y: cells[row][col].y - OFFSET.y + salt + pointerBugOffset,
+      x: cells[row][col].x - offset.x + salt + pointerBugOffset,
+      y: cells[row][col].y - offset.y + salt + pointerBugOffset,
     })
   }, [point])
+
+  useEffect(() => {
+    if (!offset) return
+    setZeroPoint({ x: offset.x - DICE_CELL_SIZE - GAP, y: offset.y - DICE_CELL_SIZE - GAP })
+  }, [offset])
+
+  useEffect(() => {
+    if (!zeroPoint) return
+
+    function generateCells(skeleton: number[][]) {
+      let newCells: ITable = []
+
+      for (let i = 0; i < skeleton.length; i++) {
+        const row = []
+        for (let j = 0; j < skeleton.length; j++) {
+          row.push({
+            x: zeroPoint!.x + (DICE_CELL_SIZE + GAP) * j,
+            y: zeroPoint!.y + (DICE_CELL_SIZE + GAP) * i,
+          })
+        }
+        newCells.push(row)
+      }
+
+      return newCells
+    }
+
+    const newCells = generateCells([
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ])
+
+    setCells(newCells)
+  }, [zeroPoint])
 
   return (
     <Wrapper ref={dragWrapperRef}>
       <GridLayer>
-        {cells.map((row, y) =>
-          row.map((_, x) => (
-            <Cell key={`${y}_${x}`}>
-              <Typography
-                fontSize={20}
-                zIndex={100}
-                style={{ pointerEvents: 'none', userSelect: 'none' }}
-              >
-                {cellText[x][y]}
-              </Typography>
-            </Cell>
-          ))
-        )}
+        {cells &&
+          cells.map((row, y) =>
+            row.map((_, x) => (
+              <Cell key={`${y}_${x}`}>
+                <Typography
+                  fontSize={20}
+                  zIndex={100}
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                >
+                  {cellText[x][y]}
+                </Typography>
+              </Cell>
+            ))
+          )}
       </GridLayer>
       <Pointer
         drag
         dragMomentum={false}
         initial={{ x: -3, y: -3 }}
         animate={animateTo}
+        onDragStart={(event, info) =>
+          (offset && offset.settled) ||
+          setOffset({ x: info.point.x, y: info.point.y, settled: true })
+        }
+        // onDrag={(event, info) => console.log(info.point.x, info.point.y)}
         onDragEnd={(event, info) => setPoint({ x: info.point.x, y: info.point.y })}
         dragConstraints={dragWrapperRef}
         whileDrag={{ backgroundColor: '#9f9f9f' }}
