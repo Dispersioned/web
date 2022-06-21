@@ -12,9 +12,7 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { Paragraph } from '../../style/global'
 
-interface ExperienceProps {}
-
-const Experience: React.FC<ExperienceProps> = ({}) => {
+const Experience: React.FC = () => {
   return (
     <motion.div
       key="experience-section"
