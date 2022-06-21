@@ -111,7 +111,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
         onDragStart={handleInitOffset}
         onDragEnd={(event, info) => setPoint({ x: info.point.x, y: info.point.y })}
         dragConstraints={dragWrapper}
-        whileDrag={{ backgroundColor: '#9f9f9f' }}
+        whileDrag={{ backgroundColor: '#9f9f9f', color: '#9f9f9f' }}
         dragTransition={{ bounceStiffness: 200, bounceDamping: 20 }}
       >
         <Typography style={{ pointerEvents: 'none', userSelect: 'none' }}>Drag</Typography>
