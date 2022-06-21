@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { closestCell } from '../../services/Dice'
 import { CELLS, OFFSET } from '../../services/Dice/consts'
-import { DiceProps, ICells } from './interface'
+import { DiceProps, ITable } from './interface'
 import { Cell, GridLayer, Pointer, Wrapper } from './style'
 
 const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
-  const [cells, setCells] = useState<ICells>(CELLS)
+  const [cells, setCells] = useState<ITable>(CELLS)
 
   const [coords, setCoords] = useState<{ x: number; y: number }>()
   const [animateTo, setAnimateTo] = useState<{ x: number; y: number }>()

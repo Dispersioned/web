@@ -1,4 +1,4 @@
-import { ICells } from '../../components/Dice/interface'
+import { ITable } from '../../components/Dice/interface'
 
 export const DICE_SIZE = 370
 export const GAP = 4
@@ -15,7 +15,7 @@ export const ZERO_POINT = {
 }
 
 export function generateCells(skeleton: number[][]) {
-  let cells: ICells = []
+  let cells: ITable = []
 
   for (let i = 0; i < skeleton.length; i++) {
     const row = []
@@ -31,7 +31,7 @@ export function generateCells(skeleton: number[][]) {
   return cells
 }
 
-export const CELLS: ICells = generateCells([
+export const CELLS: ITable = generateCells([
   [0, 0, 0],
   [0, 0, 0],
   [0, 0, 0],

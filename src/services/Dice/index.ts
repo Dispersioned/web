@@ -1,6 +1,6 @@
-import { ICells, IPoint2D } from './../../components/Dice/interface'
+import { ITable, ICell } from './../../components/Dice/interface'
 
-export function closestCell(point: IPoint2D, cells: ICells) {
+export function closestCell(point: ICell, cells: ITable) {
   let best: { row: number; col: number; distance: number } | null = null
 
   for (let i = 0; i < cells.length; i++) {

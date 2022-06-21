@@ -2,9 +2,9 @@ export interface DiceProps {
   dragWrapperRef: React.MutableRefObject<null>
 }
 
-export interface IPoint2D {
+export interface ICell {
   x: number
   y: number
 }
 
-export type ICells = IPoint2D[][]
+export type ITable = ICell[][]
