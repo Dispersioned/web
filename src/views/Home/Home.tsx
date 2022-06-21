@@ -1,33 +1,25 @@
 import { Container, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Dice from '../../components/Dice/Dice'
+import { Layout, Main } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={2} height="100vh">
-        <Grid item xs={3.8}></Grid>
-        <Grid item xs={4.4}>
-          <Grid
-            container
-            spacing={8}
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            height="100vh"
-          >
-            <Grid item>
-              <Typography variant="h1">{title}</Typography>
-            </Grid>
-            <Grid item>
+      <Layout>
+        <Typography variant="h1">{title}</Typography>
+        <Main>
+          <div></div>
+          <div>
+            <Grid container direction="column" justifyContent="center" alignItems="center">
               <Dice setTitle={setTitle} />
             </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={3.8}></Grid>
-      </Grid>
+          </div>
+          <div></div>
+        </Main>
+      </Layout>
     </Container>
   )
 }
