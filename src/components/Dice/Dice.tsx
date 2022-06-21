@@ -20,7 +20,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
   useEffect(() => {
     if (!point) return
     const { row, col } = closestCell(point, cells)
-    const salt = Math.random()
+    const salt = Math.random() // needed for framer motion to recognize small movements
     const pointerBugOffset = -3
 
     setAnimateTo({
