@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Layout>
         <Typography variant="h1" align="center">
           <motion.div
