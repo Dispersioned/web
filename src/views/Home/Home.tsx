@@ -1,28 +1,46 @@
 import { Container, Grid, Typography } from '@mui/material'
-import { motion } from 'framer-motion'
-import React, { useRef } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import React, { useState } from 'react'
+import AboutMe from '../../components/AboutMe/AboutMe'
 import Dice from '../../components/Dice/Dice'
+import Experience from '../../components/Experience/Experience'
+import Skills from '../../components/Skills/Skills'
+import { SECTIONS } from '../../config'
+import { Layout, Main } from './style'
 
 const Home: React.FC = () => {
-  const dragWrapper = useRef(null)
+  const [title, setTitle] = useState('Hello!')
 
   return (
-    <Container maxWidth="lg">
-      <Grid
-        container
-        spacing={8}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        height="100vh"
-      >
-        <Grid item>
-          <Typography variant="h1">Hello!</Typography>
-        </Grid>
-        <Grid item>
-          <Dice dragWrapperRef={dragWrapper} />
-        </Grid>
-      </Grid>
+    <Container maxWidth="xl">
+      <Layout>
+        <Typography variant="h1" align="center">
+          <motion.div
+            key={title}
+            initial={{ x: '40px', opacity: 0 }}
+            animate={{ x: '0', opacity: 1 }}
+          >
+            {title}
+          </motion.div>
+        </Typography>
+
+        <Main>
+          <div>
+            <AnimatePresence>
+              {title === SECTIONS.ABOUT_ME && <AboutMe />}
+              {title === SECTIONS.SKILLS && <Skills />}
+            </AnimatePresence>
+          </div>
+          <div>
+            <Grid container direction="column" justifyContent="center" alignItems="center">
+              <Dice setTitle={setTitle} />
+            </Grid>
+          </div>
+          <div>
+            <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
+          </div>
+        </Main>
+      </Layout>
     </Container>
   )
 }
