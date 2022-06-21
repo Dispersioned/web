@@ -1,10 +1,11 @@
 import { Container, Grid, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Dice from '../../components/Dice/Dice'
 
 const Home: React.FC = () => {
   const dragWrapper = useRef(null)
+  const [title, setTitle] = useState('Hello!')
 
   return (
     <Container maxWidth="lg">
@@ -17,10 +18,10 @@ const Home: React.FC = () => {
         height="100vh"
       >
         <Grid item>
-          <Typography variant="h1">Hello!</Typography>
+          <Typography variant="h1">{title}</Typography>
         </Grid>
         <Grid item>
-          <Dice dragWrapperRef={dragWrapper} />
+          <Dice dragWrapperRef={dragWrapper} setTitle={setTitle} />
         </Grid>
       </Grid>
     </Container>

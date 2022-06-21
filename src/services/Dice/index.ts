@@ -16,3 +16,26 @@ export function closestCell(point: ICell, cells: ITable) {
     col: best!.col,
   }
 }
+
+export function getRandomPhrase(): string {
+  const phrases = [
+    'Hola!',
+    'Bonjour!',
+    'Guten tag!',
+    'Salve!',
+    'Nǐn hǎo!',
+    'Olá!',
+    'Konnichiwa!',
+    'Привет!',
+    'Shalom!',
+    'Yassas!',
+    'Dzień dobry!',
+    'Merhaba!',
+    'Zdraveite!',
+    'Hyvää päivää!',
+    'Selamat siang!',
+    'Zdravo!',
+  ]
+
+  return phrases[Math.floor(Math.random() * phrases.length)]
+}

@@ -1,7 +1,8 @@
 import { Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import { closestCell } from '../../services/Dice'
+import { SECTIONS } from '../../config'
+import { closestCell, getRandomPhrase } from '../../services/Dice'
 import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
 import { DiceProps, ICell, ITable } from './interface'
 import { Cell, GridLayer, Pointer, Wrapper } from './style'
@@ -13,7 +14,7 @@ const cellText: (string | null)[][] = [
   ['Skills', null, 'Experience'],
 ]
 
-const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
+const Dice: React.FC<DiceProps> = ({ dragWrapperRef, setTitle }) => {
   const [cells, setCells] = useState<ITable>()
 
   const [point, setPoint] = useState<ICell>()
@@ -67,6 +68,8 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
 
     const { row, col } = closestCell(point, cells)
     setSelectedCell({ row, col })
+    if (cellText[row][col]) setTitle(cellText[row][col] as string)
+    else setTitle(getRandomPhrase())
     const salt = Math.random() // needed for framer motion to recognize small movements
     const pointerBugOffset = -3
 
