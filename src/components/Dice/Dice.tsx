@@ -5,7 +5,8 @@ import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
 import { DiceProps, ICell, ITable } from './interface'
 import { Cell, GridLayer, Pointer, Wrapper } from './style'
 
-const cellText = [
+// must be square
+const cellText: (string | null)[][] = [
   ['About me', null, 'Projects'],
   [null, null, null],
   ['Skills', null, 'Experience'],
@@ -44,8 +45,8 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
 
   useEffect(() => {
     if (!zeroPoint) return
-
-    function generateCells(skeleton: number[][]) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function generateCells(skeleton: any[][]) {
       let newCells: ITable = []
 
       for (let i = 0; i < skeleton.length; i++) {
@@ -62,11 +63,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
       return newCells
     }
 
-    const newCells = generateCells([
-      [0, 0, 0],
-      [0, 0, 0],
-      [0, 0, 0],
-    ])
+    const newCells = generateCells(cellText)
 
     setCells(newCells)
   }, [zeroPoint])
