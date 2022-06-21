@@ -14,8 +14,15 @@ const Home: React.FC = () => {
     <Container maxWidth="lg">
       <Layout>
         <Typography variant="h1" align="center">
-          {title}
+          <motion.div
+            key={title}
+            initial={{ x: '40px', opacity: 0 }}
+            animate={{ x: '0', opacity: 1 }}
+          >
+            {title}
+          </motion.div>
         </Typography>
+
         <Main>
           <div>
             <AnimatePresence>{title === SECTIONS.ABOUT_ME && <AboutMe />}</AnimatePresence>

@@ -6,6 +6,7 @@ export const Layout = styled.div`
   row-gap: 100px;
   height: 100vh;
   padding-top: 15vh;
+  overflow-x: hidden;
 `
 
 export const Main = styled.div`
