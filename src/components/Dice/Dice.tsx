@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { PanInfo } from 'framer-motion'
+import { motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { closestCell } from '../../services/Dice'
 import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
@@ -20,6 +20,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
   const [animateTo, setAnimateTo] = useState<ICell>()
   const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null) // framer-motion and local coords offset
   const [zeroPoint, setZeroPoint] = useState<ICell | null>(null) // top left grid cell
+  const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
 
   useEffect(() => {
     // mock offset. Will be inited properly on first drag
@@ -65,6 +66,7 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
     if (!point || !cells || !offset) return
 
     const { row, col } = closestCell(point, cells)
+    setSelectedCell({ row, col })
     const salt = Math.random() // needed for framer motion to recognize small movements
     const pointerBugOffset = -3
 
@@ -81,13 +83,18 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
           cells.map((row, y) =>
             row.map((_, x) => (
               <Cell key={`${y}_${x}`}>
-                <Typography
-                  fontSize={20}
-                  zIndex={100}
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                <motion.div
+                  animate={{ opacity: selectedCell.row === y && selectedCell.col === x ? 0 : 1 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  {cellText[y][x]}
-                </Typography>
+                  <Typography
+                    fontSize={20}
+                    zIndex={100}
+                    style={{ pointerEvents: 'none', userSelect: 'none' }}
+                  >
+                    {cellText[y][x]}
+                  </Typography>
+                </motion.div>
               </Cell>
             ))
           )}
