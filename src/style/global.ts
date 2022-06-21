@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import styled, { createGlobalStyle, css } from 'styled-components'
 
 const resetStyles = css`
@@ -165,6 +166,10 @@ const resetStyles = css`
 
 const GlobalStyle = createGlobalStyle`
   ${resetStyles}
+`
+
+export const Paragraph = styled(Typography)`
+  margin-bottom: 15px;
 `
 
 export default GlobalStyle

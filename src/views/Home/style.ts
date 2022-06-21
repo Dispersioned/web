@@ -6,7 +6,6 @@ export const Layout = styled.div`
   row-gap: 100px;
   height: 100vh;
   padding-top: 15vh;
-  text-align: center;
 `
 
 export const Main = styled.div`

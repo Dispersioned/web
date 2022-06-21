@@ -1,6 +1,8 @@
 import { Container, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
+import AboutMe from '../../components/AboutMe/AboutMe'
 import Dice from '../../components/Dice/Dice'
+import { SECTIONS } from '../../config'
 import { Layout, Main } from './style'
 
 const Home: React.FC = () => {
@@ -9,9 +11,11 @@ const Home: React.FC = () => {
   return (
     <Container maxWidth="lg">
       <Layout>
-        <Typography variant="h1">{title}</Typography>
+        <Typography variant="h1" align="center">
+          {title}
+        </Typography>
         <Main>
-          <div></div>
+          <div>{title === SECTIONS.ABOUT_ME && <AboutMe />}</div>
           <div>
             <Grid container direction="column" justifyContent="center" alignItems="center">
               <Dice setTitle={setTitle} />
