@@ -1,0 +1,16 @@
+.dice-wrapper {
+  background-color: #efefef;
+  border-radius: 70px;
+  width: 370px;
+  height: 370px;
+}
+
+.dice {
+  width: 110px;
+  height: 110px;
+  background-color: #bcbcbc;
+  border-radius: 50%;
+  position: relative;
+  left: calc(50% - 55px);
+  top: calc(50% - 55px);
+}
