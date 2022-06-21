@@ -114,7 +114,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
         whileDrag={{ backgroundColor: '#9f9f9f' }}
         dragTransition={{ bounceStiffness: 200, bounceDamping: 20 }}
       >
-        <Typography>Drag</Typography>
+        <Typography style={{ pointerEvents: 'none', userSelect: 'none' }}>Drag</Typography>
       </Pointer>
     </Wrapper>
   )
