@@ -102,7 +102,9 @@ const Dice: React.FC<DiceProps> = ({ dragWrapperRef }) => {
         dragConstraints={dragWrapperRef}
         whileDrag={{ backgroundColor: '#9f9f9f' }}
         dragTransition={{ bounceStiffness: 200, bounceDamping: 20 }}
-      />
+      >
+        <Typography>Drag</Typography>
+      </Pointer>
     </Wrapper>
   )
 }
