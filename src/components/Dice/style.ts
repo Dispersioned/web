@@ -33,8 +33,8 @@ export const Cell = styled.div`
 
 export const Pointer = styled(motion.div)`
   cursor: pointer;
-  width: 115px;
-  height: 115px;
+  width: 70px;
+  height: 70px;
   background-color: #bcbcbc;
   border-radius: 50%;
   position: relative;
