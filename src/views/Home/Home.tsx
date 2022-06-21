@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import AboutMe from '../../components/AboutMe/AboutMe'
 import Dice from '../../components/Dice/Dice'
+import Experience from '../../components/Experience/Experience'
 import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
 import { Layout, Main } from './style'
@@ -35,7 +36,9 @@ const Home: React.FC = () => {
               <Dice setTitle={setTitle} />
             </Grid>
           </div>
-          <div></div>
+          <div>
+            <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
+          </div>
         </Main>
       </Layout>
     </Container>
