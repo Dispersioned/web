@@ -1,10 +1,10 @@
 import { Container, Grid, Typography } from '@mui/material'
 import { AnimatePresence, motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import AboutMe from '../../components/AboutMe/AboutMe'
 import Dice from '../../components/Dice/Dice'
+import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
-import { Paragraph } from '../../style/global'
 import { Layout, Main } from './style'
 
 const Home: React.FC = () => {
@@ -25,7 +25,10 @@ const Home: React.FC = () => {
 
         <Main>
           <div>
-            <AnimatePresence>{title === SECTIONS.ABOUT_ME && <AboutMe />}</AnimatePresence>
+            <AnimatePresence>
+              {title === SECTIONS.ABOUT_ME && <AboutMe />}
+              {title === SECTIONS.SKILLS && <Skills />}
+            </AnimatePresence>
           </div>
           <div>
             <Grid container direction="column" justifyContent="center" alignItems="center">
