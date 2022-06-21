@@ -9,9 +9,9 @@ import { Cell, GridLayer, Pointer, Wrapper } from './style'
 
 // must be square
 const cellText: (string | null)[][] = [
-  ['About me', null, 'Projects'],
+  [SECTIONS.ABOUT_ME, null,SECTIONS.PROJECTS],
   [null, null, null],
-  ['Skills', null, 'Experience'],
+  [SECTIONS.SKILLS, null, SECTIONS.EXPERIENCE],
 ]
 
 const Dice: React.FC<DiceProps> = ({ dragWrapperRef, setTitle }) => {
