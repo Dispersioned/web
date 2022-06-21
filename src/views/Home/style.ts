@@ -14,9 +14,3 @@ export const Main = styled.div`
   grid-template-columns: 1fr fit-content(100%) 1fr;
   column-gap: 45px;
 `
-
-export const Navigation = styled.nav`
-  position: fixed;
-  left: 50px;
-  top: 18vh;
-`
