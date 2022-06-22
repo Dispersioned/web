@@ -1,7 +1,7 @@
-import { Chip, Typography } from '@mui/material'
+import { Chip } from '@mui/material'
 import styled from 'styled-components'
 
-export const Wrapper = styled(Typography)`
+export const Wrapper = styled('div')`
   background-color: var(--color-gray-100);
   border-radius: 5px;
   padding:1rem 2rem;
