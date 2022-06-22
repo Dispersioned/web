@@ -7,13 +7,14 @@ export const Wrapper = styled('div')`
   padding: 1rem 2rem;
 `
 
-export const Tag = styled(Chip)`
+export const Tag = styled(Chip)<{ active: boolean }>`
   font-size: 1rem;
   margin-top: 5px;
   margin-bottom: 10px;
   :not(:first-child) {
     margin-left: 12px;
   }
+  background-color: ${(props) => props.active && 'violet'};
 `
 
 export const ProjectLink = styled('a')`

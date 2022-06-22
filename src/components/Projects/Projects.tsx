@@ -81,6 +81,18 @@ const Projects: React.FC = () => {
             </div>
             <ProjectsList>
               <ProjectsTitle variant="h4">Frontend</ProjectsTitle>
+              <Project
+                title="Todo list"
+                description="Pet project to practise React & heroku deployment"
+                link="https://dispersioned.github.io/react-todo/"
+                tags={['React', 'Styled Components', 'Heroku']}
+              />
+              <Project
+                title="WebRTC video chat"
+                description=""
+                link="https://dispersioned.github.io/video-chat-webrtc/"
+                tags={['React', 'TypeScript', 'Material UI', 'Forked']}
+              />
             </ProjectsList>
           </Main>
         </Layout>
