@@ -166,6 +166,13 @@ const resetStyles = css`
 
 const GlobalStyle = createGlobalStyle`
   ${resetStyles}
+
+  :root {
+    --color-gray-100: #efefef;
+    --color-gray-200: #bcbcbc;
+    --color-gray-300: #9f9f9f;
+    --color-gray-400: #707070;
+  }
 `
 
 export const Paragraph = styled(Typography)`

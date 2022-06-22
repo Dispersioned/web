@@ -27,7 +27,7 @@ export const Cell = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #efefef;
+  background-color: var(--color-gray-100);
   border-radius: 5px;
 `
 
@@ -35,11 +35,11 @@ export const Pointer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #707070;
+  color: var(--color-gray-400);
   cursor: pointer;
   width: 70px;
   height: 70px;
-  background-color: #bcbcbc;
+  background-color: var(--color-gray-200);
   border-radius: 50%;
   position: relative;
 `

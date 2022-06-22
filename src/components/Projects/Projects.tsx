@@ -41,12 +41,12 @@ const Projects: React.FC = () => {
                     position: 'fixed',
                     width: '3500px',
                     height: '3500px',
-                    color: '#bcbcbc',
+                    color: 'var(--color-gray-200)',
                   }}
                   animate={{
                     width: 70,
                     height: 70,
-                    color: '#707070',
+                    color: 'var(--color-gray-400)',
                     transition: { duration: 0.7 },
                   }}
                   style={{

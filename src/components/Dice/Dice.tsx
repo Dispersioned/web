@@ -120,7 +120,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
           position: 'fixed',
           width: '3500px',
           height: '3500px',
-          color: '#bcbcbc',
+          color: 'var(--color-gray-200)',
           transition: { duration: 0.7 },
         }}
         onDragStart={handleInitOffset}
