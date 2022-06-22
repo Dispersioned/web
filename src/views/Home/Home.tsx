@@ -57,7 +57,7 @@ const Home: React.FC = () => {
         </Typography>
 
         <Main>
-          <div>
+          <div style={{ overflow: 'auto', height: '100%', paddingRight: 10 }}>
             <AnimatePresence>
               {title === SECTIONS.ABOUT_ME && <AboutMe />}
               {title === SECTIONS.SKILLS && <Skills />}
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
               <Dice setTitle={setTitle} />
             </Grid>
           </div>
-          <div>
+          <div style={{ overflow: 'auto', height: '100%', paddingRight: 10 }}>
             <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
           </div>
         </Main>
