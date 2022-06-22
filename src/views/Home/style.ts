@@ -15,3 +15,24 @@ export const Main = styled.div`
   column-gap: 45px;
   align-items: flex-start;
 `
+
+export const Gears = styled.div`
+  #gear1 {
+    position: fixed;
+    animation: spin 3.5s infinite linear;
+  }
+
+  #gear2 {
+    position: fixed;
+    animation: spin 4.2s infinite reverse linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`
