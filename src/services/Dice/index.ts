@@ -23,7 +23,7 @@ export class WelcomeGenerator {
     'Bonjour!',
     'Guten tag!',
     'Salve!',
-    'Nǐn hǎo!',
+    '您好!',
     'Olá!',
     'Konnichiwa!',
     'Привет!',
