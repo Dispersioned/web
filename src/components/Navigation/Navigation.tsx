@@ -15,7 +15,14 @@ const Navigation: React.FC = () => {
         onHoverStart={() => setIsNavHovered(true)}
         onHoverEnd={() => setIsNavHovered(false)}
       >
-        {!isNavHovered && <img src={burger} alt="menu button" />}
+        {!isNavHovered && (
+          <motion.img
+            initial={{ width: 0, height: 0 }}
+            animate={{ opacity: 1, width: 64, height: 64 }}
+            src={burger}
+            alt="menu button"
+          />
+        )}
         <AnimatePresence>
           {isNavHovered && (
             <motion.div
@@ -26,9 +33,9 @@ const Navigation: React.FC = () => {
             >
               <motion.div
                 key="menu-github"
-                initial={{ y: 62, opacity: 0.4 }}
+                initial={{ y: 62, opacity: 0 }}
                 animate={{ y: -20, opacity: 1 }}
-                transition={{ duration: 0.1, ease: 'easeInOut' }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
                   <img src={githubIcon} alt="menu button" />
@@ -39,9 +46,9 @@ const Navigation: React.FC = () => {
               </a>
               <motion.div
                 key="menu-headhunter"
-                initial={{ y: -65, opacity: 0.4 }}
+                initial={{ y: -65, opacity: 0 }}
                 animate={{ y: 20, opacity: 1 }}
-                transition={{ duration: 0.1, ease: 'easeInOut' }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a
                   href="https://rostov.hh.ru/resume/23e5510fff09055f900039ed1f327579537633"
