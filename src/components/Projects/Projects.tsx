@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
               />
               <Project
                 title="WebRTC video chat"
-                description=""
+                description="Pet project to practise async React through refs and migrating from js to ts"
                 link="https://dispersioned.github.io/video-chat-webrtc/"
                 tags={['React', 'TypeScript', 'Material UI', 'Forked']}
               />
