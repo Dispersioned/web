@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Layout = styled.div`
   display: grid;
   grid-template-rows: fit-content(100%) fit-content(100%);
-  row-gap: 100px;
+  row-gap: 70px;
   height: 100vh;
-  padding-top: 15vh;
+  padding-top: 10vh;
   overflow-x: hidden;
 `
 
