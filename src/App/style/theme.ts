@@ -6,6 +6,9 @@ const theme = createTheme({
     body1: {
       fontSize: 20,
     },
+    h5: {
+      color: 'black',
+    },
   },
 })
 
