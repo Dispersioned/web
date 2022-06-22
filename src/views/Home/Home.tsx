@@ -46,7 +46,7 @@ const Home: React.FC = () => {
       </Gears>
 
       <Layout>
-        <Typography variant="h1" align="center">
+        <Typography variant="h1" fontSize="5rem" align="center">
           <motion.div
             key={title}
             initial={{ x: '40px', opacity: 0 }}
