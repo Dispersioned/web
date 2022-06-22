@@ -18,7 +18,7 @@ const AboutMe: React.FC = () => {
       <Paragraph>
         Currently deepening my knowledge about typescript & frontend architecture.
       </Paragraph>
-      <Paragraph>Love building custom keyboards and handcraft useless but funny items.</Paragraph>
+      <Paragraph>Love building custom keyboards and handcraft useless yet funny items.</Paragraph>
     </motion.div>
   )
 }
