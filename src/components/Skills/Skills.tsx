@@ -26,6 +26,7 @@ const Skills: React.FC = () => {
         <SkillItem label="Figma" />
         <SkillItem label="Heroku" />
         <SkillItem label="Yarn" />
+        <SkillItem label="Gulp" />
       </Box>
 
       <Box marginBottom={2}>
