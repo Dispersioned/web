@@ -21,7 +21,7 @@ const Project: React.FC<ProjectProps> = ({ title, description, tags, link, image
       </Typography>
       <div>
         {tags.map((tag) => (
-          <Tag key={tag} label={tag} active={tag === 'Forked'} />
+          <Tag key={tag} label={tag} $active={tag.toLowerCase() === 'forked'} />
         ))}
       </div>
       {imageURL && <img src={imageURL} alt={title} />}
