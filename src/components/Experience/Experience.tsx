@@ -5,12 +5,11 @@ import {
   TimelineDot,
   TimelineItem,
   TimelineOppositeContent,
-  TimelineSeparator,
+  TimelineSeparator
 } from '@mui/lab'
 import { Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
-import { Paragraph } from '../../App/style/global'
 
 const Experience: React.FC = () => {
   return (
