@@ -6,7 +6,11 @@ import { SECTIONS } from '../../config'
 import { Layout, Main } from '../../views/Home/style'
 import { Pointer } from '../Dice/style'
 import Navigation from '../Navigation/Navigation'
-import { Item } from './style'
+import Project from '../Project/Project'
+import { ProjectsList, ProjectsTitle } from './style'
+import cloverly from '../../assets/img/projects-preview/cloverly.jpg'
+import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineering.jpg'
+import kovmangal from '../../assets/img/projects-preview/kovmangal.jpg'
 
 const Projects: React.FC = () => {
   const navigate = useNavigate()
@@ -26,15 +30,33 @@ const Projects: React.FC = () => {
             </motion.div>
           </Typography>
 
-          <Main>
-            <div>
-              <Item>
-                <Typography variant="h4">HTML Mock-up</Typography>
-              </Item>
-            </div>
+          <Main style={{ overflow: 'hidden' }}>
+            <ProjectsList>
+              <ProjectsTitle variant="h4"> HTML Mock-up</ProjectsTitle>
+              <Project
+                title="Cloverly"
+                description="API platform to help neutralize carbon emissions"
+                link="https://dispersioned.github.io/web-cloverly/"
+                imageURL={cloverly}
+                tags={['HTML', 'SCSS', 'Gulp']}
+              />
+              <Project
+                title="Zavkom Engineering"
+                description="Company websit"
+                link="https://dispersioned.github.io/web-zavkom-engineering/"
+                imageURL={zavkomEngineering}
+                tags={['HTML', 'SCSS', 'Gulp']}
+              />
+              <Project
+                title="Kovmangal"
+                description="Forged chargrill store"
+                link="https://dispersioned.github.io/web-kovmangal/"
+                imageURL={kovmangal}
+                tags={['HTML', 'SCSS', 'Gulp']}
+              />
+            </ProjectsList>
             <div style={{ width: 70, height: 70 }}>
               <Grid container direction="column" justifyContent="center" alignItems="center">
-                {/* <Dice setTitle={setTitle} /> */}
                 <Pointer
                   onClick={() => navigate('/')}
                   initial={{
@@ -57,11 +79,9 @@ const Projects: React.FC = () => {
                 </Pointer>
               </Grid>
             </div>
-            <div>
-              <Item>
-                <Typography variant="h4">Frontend</Typography>
-              </Item>
-            </div>
+            <ProjectsList>
+              <ProjectsTitle variant="h4">Frontend</ProjectsTitle>
+            </ProjectsList>
           </Main>
         </Layout>
         <Navigation />
