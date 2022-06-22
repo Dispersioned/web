@@ -51,9 +51,13 @@ const Navigation: React.FC = () => {
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a
-                  href="https://rostov.hh.ru/resume/23e5510fff09055f900039ed1f327579537633"
+                  href="#disabled"
+                  title="i don't wanna keep my hh up to date so link's disabled. Write to me in telegram"
                   target="_blank"
                   rel="noreferrer"
+                  onClick={(e) => {
+                    e.preventDefault()
+                  }}
                 >
                   <img src={headhunterIcon} alt="menu button" />
                 </a>
