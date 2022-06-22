@@ -42,4 +42,5 @@ export const Pointer = styled(motion.div)`
   background-color: var(--color-gray-200);
   border-radius: 50%;
   position: relative;
+  z-index: 1000;
 `
