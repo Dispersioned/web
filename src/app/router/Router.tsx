@@ -10,9 +10,9 @@ const Router: React.FC = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
+        <Route path="/web" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/*" element={<Navigate replace to="/" />} />
+        <Route path="/*" element={<Navigate replace to="/web" />} />
       </Routes>
     </AnimatePresence>
   )
