@@ -13,4 +13,5 @@ export const Main = styled.div`
   display: grid;
   grid-template-columns: 1fr fit-content(100%) 1fr;
   column-gap: 45px;
+  align-items: flex-start;
 `

@@ -14,6 +14,7 @@ export const ProjectsList = styled('div')`
   display: grid;
   row-gap: 20px;
   align-items: flex-start;
-  overflow: scroll;
+  overflow: auto;
+  max-height: 100%;
   padding-right: 12px;
 `
