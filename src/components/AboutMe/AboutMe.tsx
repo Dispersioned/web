@@ -10,14 +10,15 @@ const AboutMe: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <Paragraph>Hi there. My name’s Max, one more ordinary frontend developer.</Paragraph>
       <Paragraph>
-        Hi there. My name’s Max, an ordinary fellow with aptitude for technical sciences.
+        I was born 2002, Russia. At school I was fond of technical sciences. Later began to study
+        html make-up and javascript. Now I am a 2nd year student of software engineering at DSTU.
       </Paragraph>
       <Paragraph>
-        Born 2002, Russia. Studied math & python in school. Now am a 2nd year student of software
-        engineering at DSTU.
+        Currently deepening my knowledge about typescript & frontend architecture.
       </Paragraph>
-      <Paragraph>Love building custom keyboards and handcraft useful items.</Paragraph>
+      <Paragraph>Love building custom keyboards and handcraft useless but funny items.</Paragraph>
     </motion.div>
   )
 }
