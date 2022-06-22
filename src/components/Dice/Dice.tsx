@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material'
-import { motion, PanInfo } from 'framer-motion'
+import { AnimatePresence, motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 import { SECTIONS } from '../../config'
 import { closestCell, WelcomeGenerator } from '../../services/Dice'
 import { DICE_CELL_SIZE, GAP } from '../../services/Dice/consts'
@@ -15,6 +17,7 @@ const cellText: (string | null)[][] = [
 ]
 
 const Dice: React.FC<DiceProps> = ({ setTitle }) => {
+  const navigate = useNavigate()
   const dragWrapper = useRef(null)
   const [cells, setCells] = useState<ITable>()
 
@@ -80,6 +83,11 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
     })
   }, [point])
 
+  useEffect(() => {
+    if (selectedCell.row !== 0 || selectedCell.col !== 2) return
+    navigate('/projects')
+  }, [selectedCell])
+
   return (
     <Wrapper ref={dragWrapper}>
       <GridLayer>
@@ -104,10 +112,18 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
           )}
       </GridLayer>
       <Pointer
+        key="pointer"
         drag
         dragMomentum={false}
         initial={{ x: -3, y: -3 }}
         animate={animateTo}
+        exit={{
+          position: 'fixed',
+          width: '3500px',
+          height: '3500px',
+          color: '#bcbcbc',
+          transition: { duration: 0.7 },
+        }}
         onDragStart={handleInitOffset}
         onDragEnd={(event, info) => setPoint({ x: info.point.x, y: info.point.y })}
         dragConstraints={dragWrapper}

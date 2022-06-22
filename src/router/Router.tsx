@@ -11,6 +11,7 @@ const Router: React.FC = () => {
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/*" element={<Navigate replace to="/" />} />
       </Routes>
     </AnimatePresence>
