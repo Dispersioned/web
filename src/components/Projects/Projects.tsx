@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
                 <Typography variant="h4">HTML Mock-up</Typography>
               </Item>
             </div>
-            <div>
+            <div style={{ width: 70, height: 70 }}>
               <Grid container direction="column" justifyContent="center" alignItems="center">
                 {/* <Dice setTitle={setTitle} /> */}
                 <Pointer
