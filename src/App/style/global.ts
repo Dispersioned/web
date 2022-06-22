@@ -173,6 +173,19 @@ const GlobalStyle = createGlobalStyle`
     --color-gray-300: #9f9f9f;
     --color-gray-400: #707070;
   }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-200);
+      border-radius: 5px;
+  }
 `
 
 export const Paragraph = styled(Typography)`
