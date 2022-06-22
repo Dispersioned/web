@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
             </motion.div>
           </Typography>
 
-          <Main style={{ overflow: 'hidden' }}>
+          <Main>
             <ProjectsList>
               <ProjectsTitle variant="h4"> HTML Mock-up</ProjectsTitle>
               <Project

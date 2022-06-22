@@ -12,8 +12,9 @@ export const Layout = styled.div`
 export const Main = styled.div`
   display: grid;
   grid-template-columns: 1fr fit-content(100%) 1fr;
-  column-gap: 45px;
+  column-gap: max(20px, 4vw);
   align-items: flex-start;
+  overflow-y: hidden;
 `
 
 export const Gears = styled.div`
