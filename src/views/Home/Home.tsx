@@ -1,9 +1,10 @@
 import { Container, Grid } from '@mui/material'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
-import gear1 from '../../assets/icons/gear1.svg'
-import gear2 from '../../assets/icons/gear2.svg'
+
+import back from '../../assets/icons/back.svg'
 import AboutMe from '../../components/AboutMe/AboutMe'
+import Animations from '../../components/Animations/Animations'
 import Dice from '../../components/Dice/Dice'
 import Experience from '../../components/Experience/Experience'
 import Layout from '../../components/Layout/Layout'
@@ -12,13 +13,10 @@ import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
 import { WelcomeGenerator } from '../../services/Dice'
 import { isMobile } from '../../services/sizes'
-import { ContentColumn, ContentDesktop, ContentMobile, Gears, MobileOverlay } from './style'
-import back from '../../assets/icons/back.svg'
+import { ContentColumn, ContentDesktop, ContentMobile, MobileOverlay } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
-
-  const isGears = title === SECTIONS.SKILLS
   const Content = isMobile() ? ContentMobile : ContentDesktop
 
   return (
@@ -40,32 +38,7 @@ const Home: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <Gears>
-        <AnimatePresence>
-          {isGears && (
-            <motion.img
-              id="gear1"
-              src={gear1}
-              alt="#"
-              initial={{ top: '-100%', right: 100 }}
-              animate={{ top: -120, transition: { duration: '0.8', ease: 'easeOut' } }}
-              exit={{ top: '-100%', transition: { duration: '1.1', ease: 'easeIn' } }}
-            />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {isGears && (
-            <motion.img
-              id="gear2"
-              src={gear2}
-              alt="#"
-              initial={{ right: -400, top: -200 }}
-              animate={{ right: -80, top: 40, transition: { duration: '0.7', ease: 'easeOut' } }}
-              exit={{ right: -400, top: -200, transition: { duration: '1.1', ease: 'easeIn' } }}
-            />
-          )}
-        </AnimatePresence>
-      </Gears>
+      <Animations shouldShow={title === SECTIONS.SKILLS} />
 
       <Layout title={title}>
         <Content>
