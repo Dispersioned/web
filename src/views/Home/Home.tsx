@@ -60,7 +60,7 @@ const Home: React.FC = () => {
               </ContentColumn>
             </>
           ) : (
-            <AnimatePresence>
+            <>
               <ContentColumn>
                 <AnimatePresence>
                   {title === SECTIONS.ABOUT_ME && <AboutMe />}
@@ -75,7 +75,7 @@ const Home: React.FC = () => {
               <ContentColumn>
                 <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
               </ContentColumn>
-            </AnimatePresence>
+            </>
           )}
         </Content>
       </Layout>
