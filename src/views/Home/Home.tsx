@@ -11,13 +11,14 @@ import Navigation from '../../components/Navigation/Navigation'
 import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
 import { getWindowSize, SIZES } from '../../services/sizes'
-import { ContentColumn, Gears, Main } from './style'
+import { ContentColumn, Gears, ContentDesktop, ContentMobile } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
 
   const isGears = title === SECTIONS.SKILLS
-  const isMobile = getWindowSize() === SIZES.MOBILE
+  const isMobile = getWindowSize() === SIZES.DESKTOP
+  const Content = isMobile ? ContentMobile : ContentDesktop
 
   return (
     <Container maxWidth="xl">
@@ -49,8 +50,23 @@ const Home: React.FC = () => {
       </Gears>
 
       <Layout title={title}>
-        <Main>
-          {isMobile ? null : (
+        <Content>
+          {isMobile ? (
+            <>
+              <div>
+                <Grid container direction="column" justifyContent="center" alignItems="center">
+                  <Dice setTitle={setTitle} />
+                </Grid>
+              </div>
+              <ContentColumn>
+                <AnimatePresence>
+                  {title === SECTIONS.ABOUT_ME && <AboutMe />}
+                  {title === SECTIONS.SKILLS && <Skills />}
+                  {title === SECTIONS.EXPERIENCE && <Experience />}
+                </AnimatePresence>
+              </ContentColumn>
+            </>
+          ) : (
             <>
               <ContentColumn>
                 <AnimatePresence>
@@ -68,7 +84,7 @@ const Home: React.FC = () => {
               </ContentColumn>
             </>
           )}
-        </Main>
+        </Content>
       </Layout>
       <Navigation />
     </Container>

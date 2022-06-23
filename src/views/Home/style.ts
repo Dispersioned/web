@@ -1,11 +1,19 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
+export const ContentDesktop = styled.div`
   display: grid;
   grid-template-columns: 1fr fit-content(100%) 1fr;
   column-gap: max(20px, 4vw);
   align-items: flex-start;
   overflow-y: hidden;
+`
+
+export const ContentMobile = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-r: 1fr; */
+  row-gap: 20px;
+  align-items: flex-start;
 `
 
 export const ContentColumn = styled.div`

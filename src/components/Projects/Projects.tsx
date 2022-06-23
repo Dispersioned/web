@@ -6,7 +6,7 @@ import cloverly from '../../assets/img/projects-preview/cloverly.jpg'
 import kovmangal from '../../assets/img/projects-preview/kovmangal.jpg'
 import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineering.jpg'
 import { SECTIONS } from '../../config'
-import { Main } from '../../views/Home/style'
+import { ContentDesktop } from '../../views/Home/style'
 import { Pointer } from '../Dice/style'
 import Layout from '../Layout/Layout'
 import Navigation from '../Navigation/Navigation'
@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
     >
       <Container maxWidth="xl">
         <Layout title={SECTIONS.PROJECTS}>
-          <Main>
+          <ContentDesktop>
             <ProjectsList>
               <ProjectsTitle variant="h4"> HTML Mock-up</ProjectsTitle>
               <Project
@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
                 tags={['React', 'TypeScript', 'Material UI', 'Forked']}
               />
             </ProjectsList>
-          </Main>
+          </ContentDesktop>
         </Layout>
         <Navigation />
       </Container>

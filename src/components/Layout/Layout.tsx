@@ -1,16 +1,12 @@
 import { Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
-import { getWindowSize, SIZES } from '../../services/sizes'
 import { LayoutProps } from './interface'
-import { WrapperLaptop, WrapperMobile } from './style'
+import { Wrapper } from './style'
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
-  const isMobile = getWindowSize() === SIZES.MOBILE
-  const WrapperComponent = isMobile ? WrapperLaptop : WrapperMobile
-
   return (
-    <WrapperComponent>
+    <Wrapper>
       <Typography variant="h1" fontSize="5rem" align="center">
         <motion.div
           key={title}
@@ -22,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
       </Typography>
 
       {children}
-    </WrapperComponent>
+    </Wrapper>
   )
 }
 export default Layout
