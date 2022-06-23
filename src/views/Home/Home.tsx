@@ -10,12 +10,15 @@ import Layout from '../../components/Layout/Layout'
 import Navigation from '../../components/Navigation/Navigation'
 import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
+import { getScreenSize, SIZES } from '../../services/sizes'
 import { ContentColumn, Gears, Main } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
 
   const isGears = title === SECTIONS.SKILLS
+
+  const isMobile = getScreenSize() === SIZES.MOBILE
 
   return (
     <Container maxWidth="xl">
