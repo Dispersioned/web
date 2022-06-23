@@ -45,11 +45,9 @@ const Home: React.FC = () => {
           {isMobile() ? (
             <>
               {WelcomeGenerator.phrases.includes(title) && (
-                <div>
-                  <Grid container direction="column" justifyContent="center" alignItems="center">
-                    <Dice setTitle={setTitle} />
-                  </Grid>
-                </div>
+                <Grid container direction="column" justifyContent="center" alignItems="center">
+                  <Dice setTitle={setTitle} />
+                </Grid>
               )}
               <ContentColumn>
                 <AnimatePresence>
@@ -67,11 +65,9 @@ const Home: React.FC = () => {
                   {title === SECTIONS.SKILLS && <Skills />}
                 </AnimatePresence>
               </ContentColumn>
-              <div>
-                <Grid container direction="column" justifyContent="center" alignItems="center">
-                  <Dice setTitle={setTitle} />
-                </Grid>
-              </div>
+              <Grid container direction="column" justifyContent="center" alignItems="center">
+                <Dice setTitle={setTitle} />
+              </Grid>
               <ContentColumn>
                 <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
               </ContentColumn>
