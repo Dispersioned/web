@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { Paragraph } from '../../app/style/global'
+import { Paragraph } from '../../../app/style/global'
 
 const AboutMe: React.FC = () => {
   return (

@@ -1,4 +1,4 @@
-import { ITable, ICell } from './../../components/Dice/interface'
+import { ITable, ICell } from '../../components/dice/interface'
 
 export function closestCell(point: ICell, cells: ITable) {
   let best: { row: number; col: number; distance: number } | null = null
