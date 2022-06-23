@@ -2,15 +2,16 @@ import { Container, Grid, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { useNavigate } from 'react-router'
+import cloverly from '../../assets/img/projects-preview/cloverly.jpg'
+import kovmangal from '../../assets/img/projects-preview/kovmangal.jpg'
+import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineering.jpg'
 import { SECTIONS } from '../../config'
-import { Layout, Main } from '../../views/Home/style'
+import { Main } from '../../views/Home/style'
 import { Pointer } from '../Dice/style'
+import Layout from '../Layout/Layout'
 import Navigation from '../Navigation/Navigation'
 import Project from '../Project/Project'
 import { ProjectsList, ProjectsTitle } from './style'
-import cloverly from '../../assets/img/projects-preview/cloverly.jpg'
-import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineering.jpg'
-import kovmangal from '../../assets/img/projects-preview/kovmangal.jpg'
 
 const Projects: React.FC = () => {
   const navigate = useNavigate()
@@ -23,13 +24,7 @@ const Projects: React.FC = () => {
       exit={{ opacity: 0 }}
     >
       <Container maxWidth="xl">
-        <Layout>
-          <Typography variant="h1" align="center">
-            <motion.div initial={{ x: '40px', opacity: 0 }} animate={{ x: '0', opacity: 1 }}>
-              {SECTIONS.PROJECTS}
-            </motion.div>
-          </Typography>
-
+        <Layout title={SECTIONS.PROJECTS}>
           <Main>
             <ProjectsList>
               <ProjectsTitle variant="h4"> HTML Mock-up</ProjectsTitle>

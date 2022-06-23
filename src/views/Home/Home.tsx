@@ -1,15 +1,16 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
+import gear1 from '../../assets/icons/gear1.svg'
+import gear2 from '../../assets/icons/gear2.svg'
 import AboutMe from '../../components/AboutMe/AboutMe'
 import Dice from '../../components/Dice/Dice'
 import Experience from '../../components/Experience/Experience'
+import Layout from '../../components/Layout/Layout'
 import Navigation from '../../components/Navigation/Navigation'
 import Skills from '../../components/Skills/Skills'
-import gear1 from '../../assets/icons/gear1.svg'
-import gear2 from '../../assets/icons/gear2.svg'
 import { SECTIONS } from '../../config'
-import { Gears, Layout, Main } from './style'
+import { Gears, Main } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
@@ -45,17 +46,7 @@ const Home: React.FC = () => {
         </AnimatePresence>
       </Gears>
 
-      <Layout>
-        <Typography variant="h1" fontSize="5rem" align="center">
-          <motion.div
-            key={title}
-            initial={{ x: '40px', opacity: 0 }}
-            animate={{ x: '0', opacity: 1 }}
-          >
-            {title}
-          </motion.div>
-        </Typography>
-
+      <Layout title={title}>
         <Main>
           <div style={{ overflow: 'auto', height: '100%', paddingRight: 10 }}>
             <AnimatePresence>
