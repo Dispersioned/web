@@ -1,17 +1,12 @@
-import { Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { LayoutProps } from './interface'
-import { Wrapper } from './style'
+import { Title, Wrapper } from './style'
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
   return (
     <Wrapper>
-      <Typography
-        variant="h1"
-        align="center"
-        sx={{ fontSize: { xs: '3rem', sm: '4rem', md: '5rem' } }}
-      >
+      <Title variant="h1" align="center">
         <motion.div
           key={title}
           initial={{ x: '40px', opacity: 0 }}
@@ -19,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
         >
           {title}
         </motion.div>
-      </Typography>
+      </Title>
 
       {children}
     </Wrapper>

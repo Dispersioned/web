@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 export const ContentDesktop = styled.div`
@@ -10,8 +11,6 @@ export const ContentDesktop = styled.div`
 
 export const ContentMobile = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  /* grid-template-r: 1fr; */
   row-gap: 20px;
   align-items: flex-start;
 `
@@ -23,6 +22,8 @@ export const ContentColumn = styled.div`
 `
 
 export const Gears = styled.div`
+  z-index: 100;
+
   #gear1 {
     position: fixed;
     animation: spin 3.5s infinite linear;
@@ -31,6 +32,7 @@ export const Gears = styled.div`
   #gear2 {
     position: fixed;
     animation: spin 4.2s infinite reverse linear;
+    z-index: 100;
   }
 
   @keyframes spin {
@@ -41,4 +43,15 @@ export const Gears = styled.div`
       transform: rotate(360deg);
     }
   }
+`
+
+export const MobileOverlay = styled(motion.img)`
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100vw;
+  padding: 7px 0;
+  height: 50px;
+  z-index: 100000;
+  transform: translateX(-50%);
 `

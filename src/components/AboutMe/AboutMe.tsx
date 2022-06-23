@@ -10,7 +10,7 @@ const AboutMe: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Paragraph>Hi there. My name’s Max, i am a frontend developer.</Paragraph>
+      <Paragraph>Hi there. My name’s Max, I am a frontend developer.</Paragraph>
       <Paragraph>
         I was born 2002, Russia. At school I was fond of technical sciences. Later began to study
         html make-up and javascript. Now I am a 2nd-year student of software engineering speciality

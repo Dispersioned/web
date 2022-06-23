@@ -12,7 +12,8 @@ import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
 import { WelcomeGenerator } from '../../services/Dice'
 import { isMobile } from '../../services/sizes'
-import { ContentColumn, ContentDesktop, ContentMobile, Gears } from './style'
+import { ContentColumn, ContentDesktop, ContentMobile, Gears, MobileOverlay } from './style'
+import back from '../../assets/icons/back.svg'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
@@ -21,7 +22,24 @@ const Home: React.FC = () => {
   const Content = isMobile() ? ContentMobile : ContentDesktop
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" style={{ overflowX: 'hidden' }}>
+      <AnimatePresence>
+        {isMobile() && !WelcomeGenerator.phrases.includes(title) && (
+          <MobileOverlay
+            key="back"
+            drag={isMobile() ? 'x' : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            initial={{ x: 0, y: 0 }}
+            exit={{ y: 200, transition: { duration: 0.3 } }}
+            transition={{ duration: 2 }}
+            onDrag={(_, info) => {
+              if (info.offset.x < -120) setTitle('Hello!')
+            }}
+            src={back}
+          />
+        )}
+      </AnimatePresence>
+
       <Gears>
         <AnimatePresence>
           {isGears && (
@@ -69,7 +87,7 @@ const Home: React.FC = () => {
               </ContentColumn>
             </>
           ) : (
-            <>
+            <AnimatePresence>
               <ContentColumn>
                 <AnimatePresence>
                   {title === SECTIONS.ABOUT_ME && <AboutMe />}
@@ -84,7 +102,7 @@ const Home: React.FC = () => {
               <ContentColumn>
                 <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
               </ContentColumn>
-            </>
+            </AnimatePresence>
           )}
         </Content>
       </Layout>
