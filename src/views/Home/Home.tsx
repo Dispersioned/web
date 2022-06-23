@@ -10,7 +10,7 @@ import Layout from '../../components/Layout/Layout'
 import Navigation from '../../components/Navigation/Navigation'
 import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
-import { Gears, Main } from './style'
+import { ContentColumn, Gears, Main } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
@@ -48,20 +48,20 @@ const Home: React.FC = () => {
 
       <Layout title={title}>
         <Main>
-          <div style={{ overflow: 'auto', height: '100%', paddingRight: 10 }}>
+          <ContentColumn>
             <AnimatePresence>
               {title === SECTIONS.ABOUT_ME && <AboutMe />}
               {title === SECTIONS.SKILLS && <Skills />}
             </AnimatePresence>
-          </div>
+          </ContentColumn>
           <div>
             <Grid container direction="column" justifyContent="center" alignItems="center">
               <Dice setTitle={setTitle} />
             </Grid>
           </div>
-          <div style={{ overflow: 'auto', height: '100%', paddingRight: 10 }}>
+          <ContentColumn>
             <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
-          </div>
+          </ContentColumn>
         </Main>
       </Layout>
       <Navigation />

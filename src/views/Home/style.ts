@@ -8,6 +8,12 @@ export const Main = styled.div`
   overflow-y: hidden;
 `
 
+export const ContentColumn = styled.div`
+  overflow: auto;
+  height: 100%;
+  padding-right: 10px;
+`
+
 export const Gears = styled.div`
   #gear1 {
     position: fixed;
