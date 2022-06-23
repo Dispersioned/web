@@ -10,15 +10,15 @@ import Layout from '../../components/Layout/Layout'
 import Navigation from '../../components/Navigation/Navigation'
 import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
-import { getWindowSize, SIZES } from '../../services/sizes'
-import { ContentColumn, Gears, ContentDesktop, ContentMobile } from './style'
+import { WelcomeGenerator } from '../../services/Dice'
+import { isMobile } from '../../services/sizes'
+import { ContentColumn, ContentDesktop, ContentMobile, Gears } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
 
   const isGears = title === SECTIONS.SKILLS
-  const isMobile = getWindowSize() === SIZES.DESKTOP
-  const Content = isMobile ? ContentMobile : ContentDesktop
+  const Content = isMobile() ? ContentMobile : ContentDesktop
 
   return (
     <Container maxWidth="xl">
@@ -51,13 +51,15 @@ const Home: React.FC = () => {
 
       <Layout title={title}>
         <Content>
-          {isMobile ? (
+          {isMobile() ? (
             <>
-              <div>
-                <Grid container direction="column" justifyContent="center" alignItems="center">
-                  <Dice setTitle={setTitle} />
-                </Grid>
-              </div>
+              {WelcomeGenerator.phrases.includes(title) && (
+                <div>
+                  <Grid container direction="column" justifyContent="center" alignItems="center">
+                    <Dice setTitle={setTitle} />
+                  </Grid>
+                </div>
+              )}
               <ContentColumn>
                 <AnimatePresence>
                   {title === SECTIONS.ABOUT_ME && <AboutMe />}

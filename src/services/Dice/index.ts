@@ -35,6 +35,7 @@ export class WelcomeGenerator {
     'Hyvää päivää!',
     'Selamat siang!',
     'Zdravo!',
+    'Hello!',
   ]
 
   static available = [...WelcomeGenerator.phrases]

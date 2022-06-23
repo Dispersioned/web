@@ -7,7 +7,11 @@ import { Wrapper } from './style'
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
   return (
     <Wrapper>
-      <Typography variant="h1" fontSize="5rem" align="center">
+      <Typography
+        variant="h1"
+        align="center"
+        sx={{ fontSize: { xs: '3rem', sm: '4rem', md: '5rem' } }}
+      >
         <motion.div
           key={title}
           initial={{ x: '40px', opacity: 0 }}
