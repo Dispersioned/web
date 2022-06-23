@@ -8,7 +8,7 @@ import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineeri
 import { SECTIONS } from '../../config'
 import { ContentDesktop } from '../../views/Home/style'
 import { Pointer } from '../dice/style'
-import Layout from '../layout/Layout'
+import Layout from '../ui/layout/Layout'
 import Navigation from '../navigation/Navigation'
 import Project from '../project/Project'
 import { ProjectsList, ProjectsTitle } from './style'
