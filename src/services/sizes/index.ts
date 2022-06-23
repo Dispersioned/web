@@ -3,6 +3,6 @@ export enum SIZES {
   LAPTOP,
 }
 
-export function getScreenSize() {
+export function getWindowSize() {
   return window.innerWidth <= 900 ? SIZES.MOBILE : SIZES.LAPTOP
 }

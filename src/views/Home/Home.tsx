@@ -10,15 +10,14 @@ import Layout from '../../components/Layout/Layout'
 import Navigation from '../../components/Navigation/Navigation'
 import Skills from '../../components/Skills/Skills'
 import { SECTIONS } from '../../config'
-import { getScreenSize, SIZES } from '../../services/sizes'
+import { getWindowSize, SIZES } from '../../services/sizes'
 import { ContentColumn, Gears, Main } from './style'
 
 const Home: React.FC = () => {
   const [title, setTitle] = useState('Hello!')
 
   const isGears = title === SECTIONS.SKILLS
-
-  const isMobile = getScreenSize() === SIZES.MOBILE
+  const isMobile = getWindowSize() === SIZES.MOBILE
 
   return (
     <Container maxWidth="xl">
@@ -51,20 +50,24 @@ const Home: React.FC = () => {
 
       <Layout title={title}>
         <Main>
-          <ContentColumn>
-            <AnimatePresence>
-              {title === SECTIONS.ABOUT_ME && <AboutMe />}
-              {title === SECTIONS.SKILLS && <Skills />}
-            </AnimatePresence>
-          </ContentColumn>
-          <div>
-            <Grid container direction="column" justifyContent="center" alignItems="center">
-              <Dice setTitle={setTitle} />
-            </Grid>
-          </div>
-          <ContentColumn>
-            <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
-          </ContentColumn>
+          {isMobile ? null : (
+            <>
+              <ContentColumn>
+                <AnimatePresence>
+                  {title === SECTIONS.ABOUT_ME && <AboutMe />}
+                  {title === SECTIONS.SKILLS && <Skills />}
+                </AnimatePresence>
+              </ContentColumn>
+              <div>
+                <Grid container direction="column" justifyContent="center" alignItems="center">
+                  <Dice setTitle={setTitle} />
+                </Grid>
+              </div>
+              <ContentColumn>
+                <AnimatePresence>{title === SECTIONS.EXPERIENCE && <Experience />}</AnimatePresence>
+              </ContentColumn>
+            </>
+          )}
         </Main>
       </Layout>
       <Navigation />
