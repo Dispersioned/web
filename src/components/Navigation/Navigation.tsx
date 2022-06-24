@@ -9,6 +9,17 @@ import { Wrapper } from './style'
 const Navigation: React.FC = () => {
   const [isNavHovered, setIsNavHovered] = useState(false)
 
+  const navBtnAnimation = [0, 1, 2].map((index) => ({
+    initial: 'initial',
+    animate: 'animate',
+    exit: 'exit',
+    variants: {
+      initial: { y: -64, opacity: 0 },
+      animate: { y: 15 * (index + 1), opacity: 1 },
+      exit: { y: -64 * (index + 1), opacity: 0 },
+    },
+  }))
+
   return (
     <Wrapper>
       <motion.div
@@ -32,9 +43,7 @@ const Navigation: React.FC = () => {
             >
               <motion.div
                 key="navigation-icon-github"
-                initial={{ y: -64, opacity: 0 }}
-                animate={{ y: 15, opacity: 1 }}
-                exit={{ y: -64, opacity: 0 }}
+                {...navBtnAnimation[0]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
@@ -44,9 +53,7 @@ const Navigation: React.FC = () => {
 
               <motion.div
                 key="navigation-icon-telegram"
-                initial={{ y: -64 - 64, opacity: 0 }}
-                animate={{ y: 30, opacity: 1 }}
-                exit={{ y: -64 - 64, opacity: 0 }}
+                {...navBtnAnimation[1]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a href="https://t.me/Dispersioned" target="_blank" rel="noreferrer">
@@ -56,9 +63,7 @@ const Navigation: React.FC = () => {
 
               <motion.div
                 key="navigation-icon-headhunter"
-                initial={{ y: -64 - 64 - 64, opacity: 0 }}
-                animate={{ y: 45, opacity: 1 }}
-                exit={{ y: -64 - 64 - 64, opacity: 0 }}
+                {...navBtnAnimation[2]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a
