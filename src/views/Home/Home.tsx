@@ -11,7 +11,7 @@ import Skills from '../../components/sections/skills/Skills'
 import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile'
 import Layout from '../../components/ui/layout/Layout'
 import { SECTIONS } from '../../config'
-import { WelcomeGenerator } from '../../services/Dice'
+import { WelcomeGenerator } from '../../services/dice'
 import { isMobile } from '../../services/sizes'
 import { ContentColumn, ContentDesktop, ContentMobile } from './style'
 

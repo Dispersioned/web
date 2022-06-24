@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
-import { DICE_CELL_SIZE, DICE_SIZE, GAP } from '../../services/Dice/consts'
+import { DICE_CELL_SIZE, DICE_SIZE, GAP } from '../../config'
 
 export const Wrapper = styled.div`
   position: relative;

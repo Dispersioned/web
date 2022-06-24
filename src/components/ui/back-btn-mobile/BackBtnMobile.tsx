@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import back from '../../../assets/icons/back.svg'
-import { WelcomeGenerator } from '../../../services/Dice'
+import { WelcomeGenerator } from '../../../services/dice'
 import { isMobile } from '../../../services/sizes'
 import { BackBtnMobileProps } from './interface'
 import { MobileOverlay } from './style'
