@@ -12,7 +12,7 @@ export const MobileOverlay = styled(motion.div)`
 
   img {
     background-color: var(--color-gray-100);
-    box-shadow: 4px 2px 7px var(--color-gray-300);
+    box-shadow: 3px 2px 7px var(--color-gray-300);
     padding: 5px 10px;
     border-radius: 7px;
     transform: translateX(-50%);
