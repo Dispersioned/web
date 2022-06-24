@@ -4,10 +4,10 @@ import burger from '../../assets/icons/burger.svg'
 import githubIcon from '../../assets/icons/githubIcon.svg'
 import headhunterIcon from '../../assets/icons/headhunterIcon.svg'
 import telegramIcon from '../../assets/icons/telegramIcon.svg'
-import { Wrapper } from './style'
+import { BurgerIcon, NavBtn, Wrapper } from './style'
 
 const Navigation: React.FC = () => {
-  const [isNavHovered, setIsNavHovered] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
   const navBtnAnimation = [0, 1, 2].map((index) => ({
     initial: 'initial',
@@ -22,18 +22,12 @@ const Navigation: React.FC = () => {
 
   return (
     <Wrapper>
-      <motion.div
-        onHoverStart={() => setIsNavHovered(true)}
-        onHoverEnd={() => setIsNavHovered(false)}
-      >
-        <motion.img
-          style={{ cursor: 'pointer' }}
-          animate={{ opacity: 1, width: 64, height: 64 }}
-          src={burger}
-          alt="menu button"
-        />
+      <motion.div>
+        <BurgerIcon active={isActive} onClick={() => setIsActive(!isActive)}>
+          <span></span>
+        </BurgerIcon>
         <AnimatePresence>
-          {isNavHovered && (
+          {isActive && (
             <motion.div
               key="navigation"
               initial={{ opacity: 0, pointerEvents: 'none' }}
@@ -41,7 +35,7 @@ const Navigation: React.FC = () => {
               exit={{ opacity: 0.2, pointerEvents: 'none' }}
               style={{ position: 'absolute', left: 0, right: 0, width: 64 }}
             >
-              <motion.div
+              <NavBtn
                 key="navigation-icon-github"
                 {...navBtnAnimation[0]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -49,9 +43,9 @@ const Navigation: React.FC = () => {
                 <a href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
                   <img src={githubIcon} alt="menu button" />
                 </a>
-              </motion.div>
+              </NavBtn>
 
-              <motion.div
+              <NavBtn
                 key="navigation-icon-telegram"
                 {...navBtnAnimation[1]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -59,9 +53,9 @@ const Navigation: React.FC = () => {
                 <a href="https://t.me/Dispersioned" target="_blank" rel="noreferrer">
                   <img src={telegramIcon} alt="menu button" />
                 </a>
-              </motion.div>
+              </NavBtn>
 
-              <motion.div
+              <NavBtn
                 key="navigation-icon-headhunter"
                 {...navBtnAnimation[2]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -77,7 +71,7 @@ const Navigation: React.FC = () => {
                 >
                   <img src={headhunterIcon} alt="menu button" />
                 </a>
-              </motion.div>
+              </NavBtn>
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components'
 
 export const Wrapper = styled.nav`
@@ -13,3 +14,58 @@ export const Wrapper = styled.nav`
     top: calc(4vh - 4px);
   }
 `
+
+export const BurgerIcon = styled.div<{ active: boolean }>`
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-gray-100);
+  cursor: pointer;
+  user-select: none;
+
+  span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: ${({ active }) =>
+      active ? 'translate(-50%, -50%) rotate(45deg);' : 'translate(-50%, -50%);'};
+    width: 32px;
+    height: 3px;
+    background-color: var(--color-gray-200);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+
+    display: block;
+    width: 32px;
+    height: 3px;
+    background-color: var(--color-gray-200);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  &::before {
+    transform: ${({ active }) =>
+      active ? 'translate(-50%, -50%) rotate(45deg);' : 'translate(-50%, 50%);'};
+    left: 50%;
+    top: ${({ active }) => (active ? '50%' : '28%')};
+  }
+
+  &::after {
+    transform: translate(-50%, -50%);
+    transform: ${({ active }) =>
+      active ? 'translate(-50%, 50%) rotate(135deg);' : 'translate(-50%, --50%);'};
+    left: 50%;
+    bottom: ${({ active }) => (active ? '50%' : '28%')};
+  }
+`
+
+export const NavBtn = styled(motion.div)`
+  user-select: none;
+`;
