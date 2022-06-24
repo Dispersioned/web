@@ -6,7 +6,7 @@ import { isMobile } from '../../../services/sizes'
 import { BackBtnMobileProps } from './interface'
 import { MobileOverlay } from './style'
 
-const BackBtnMobile: React.FC<BackBtnMobileProps> = ({ title, setTitle }) => {
+const BackBtnMobile: React.FC<BackBtnMobileProps> = ({ title, callback }) => {
   return (
     <AnimatePresence>
       {isMobile() && !WelcomeGenerator.phrases.includes(title) && (
@@ -15,10 +15,9 @@ const BackBtnMobile: React.FC<BackBtnMobileProps> = ({ title, setTitle }) => {
           drag={isMobile() ? 'x' : false}
           dragConstraints={{ left: 0, right: 0 }}
           initial={{ x: 0, y: 0 }}
-          exit={{ y: 200, transition: { duration: 0.3 } }}
           transition={{ duration: 2 }}
           onDrag={(_, info) => {
-            if (info.offset.x < -120) setTitle('Hello!')
+            if (info.offset.x < -120) callback()
           }}
           src={back}
         />

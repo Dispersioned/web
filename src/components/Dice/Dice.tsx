@@ -71,8 +71,6 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
 
     const { row, col } = closestCell(point, cells)
     setSelectedCell({ row, col })
-    if (cellText[row][col]) setTitle(cellText[row][col] as string)
-    else setTitle(WelcomeGenerator.generate())
     const salt = Math.random() // needed for framer motion to recognize small movements
     const pointerBugOffset = -3
 
@@ -80,12 +78,11 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
       x: cells[row][col].x - offset.x + salt + pointerBugOffset,
       y: cells[row][col].y - offset.y + salt + pointerBugOffset,
     })
-  }, [point])
+    if (row === 0 && col === 2) navigate('/projects')
 
-  useEffect(() => {
-    if (selectedCell.row !== 0 || selectedCell.col !== 2) return
-    navigate('/projects')
-  }, [selectedCell])
+    if (cellText[row][col]) setTitle(cellText[row][col] as string)
+    else setTitle(WelcomeGenerator.generate())
+  }, [point])
 
   return (
     <Wrapper ref={dragWrapper}>

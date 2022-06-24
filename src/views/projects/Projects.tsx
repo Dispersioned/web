@@ -1,20 +1,24 @@
 import { Container, Grid, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import cloverly from '../../assets/img/projects-preview/cloverly.jpg'
 import kovmangal from '../../assets/img/projects-preview/kovmangal.jpg'
 import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineering.jpg'
+import { Pointer } from '../../components/dice/style'
+import Navigation from '../../components/navigation/Navigation'
+import Project from '../../components/project/Project'
+import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile'
+import Layout from '../../components/ui/layout/Layout'
 import { SECTIONS } from '../../config'
-import { ContentDesktop } from '../../views/Home/style'
-import { Pointer } from '../dice/style'
-import Layout from '../ui/layout/Layout'
-import Navigation from '../navigation/Navigation'
-import Project from '../project/Project'
-import { ProjectsList, ProjectsTitle } from './style'
+import { isMobile } from '../../services/sizes'
+import { ContentDesktop, ContentMobile } from '../Home/style'
+import { PointerWrapper, ProjectsList, ProjectsTitle } from './style'
 
 const Projects: React.FC = () => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const Content = isMobile() ? ContentMobile : ContentDesktop
 
   return (
     <motion.div
@@ -24,8 +28,14 @@ const Projects: React.FC = () => {
       exit={{ opacity: 0 }}
     >
       <Container maxWidth="xl">
+        <BackBtnMobile
+          title={SECTIONS.PROJECTS}
+          callback={() => {
+            if (location.pathname !== '/web') navigate('/web')
+          }}
+        />
         <Layout title={SECTIONS.PROJECTS}>
-          <ContentDesktop>
+          <Content>
             <ProjectsList>
               <ProjectsTitle variant="h4"> HTML Mock-up</ProjectsTitle>
               <Project
@@ -50,30 +60,33 @@ const Projects: React.FC = () => {
                 tags={['HTML', 'SCSS', 'Gulp']}
               />
             </ProjectsList>
-            <div style={{ width: 70, height: 70 }}>
-              <Grid container direction="column" justifyContent="center" alignItems="center">
-                <Pointer
-                  onClick={() => navigate('/')}
-                  initial={{
-                    position: 'fixed',
-                    width: '3500px',
-                    height: '3500px',
-                    color: 'var(--color-gray-200)',
-                  }}
-                  animate={{
-                    width: 70,
-                    height: 70,
-                    color: 'var(--color-gray-400)',
-                    transition: { duration: 0.7 },
-                  }}
-                  style={{
-                    transform: 'translateY(30px)',
-                  }}
-                >
-                  <Typography>Back</Typography>
-                </Pointer>
-              </Grid>
-            </div>
+            <PointerWrapper
+              container
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Pointer
+                onClick={() => navigate('/')}
+                initial={{
+                  position: 'fixed',
+                  width: '3500px',
+                  height: '3500px',
+                  color: 'var(--color-gray-200)',
+                }}
+                animate={{
+                  width: 70,
+                  height: 70,
+                  color: 'var(--color-gray-400)',
+                  transition: { duration: 0.7 },
+                }}
+                style={{
+                  transform: 'translateY(30px)',
+                }}
+              >
+                <Typography>Back</Typography>
+              </Pointer>
+            </PointerWrapper>
             <ProjectsList>
               <ProjectsTitle variant="h4">Frontend</ProjectsTitle>
               <Project
@@ -89,7 +102,7 @@ const Projects: React.FC = () => {
                 tags={['React', 'TypeScript', 'Material UI', 'Forked']}
               />
             </ProjectsList>
-          </ContentDesktop>
+          </Content>
         </Layout>
         <Navigation />
       </Container>

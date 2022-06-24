@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import Projects from '../../components/projects/Projects'
+import Projects from '../../views/projects/Projects'
 import Home from '../../views/Home/Home'
 
 const Router: React.FC = () => {

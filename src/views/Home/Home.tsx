@@ -23,7 +23,7 @@ const Home: React.FC = () => {
     <Container maxWidth="xl" style={{ overflowX: 'hidden' }}>
       <Navigation />
       <Animations shouldShow={title === SECTIONS.SKILLS} />
-      <BackBtnMobile title={title} setTitle={setTitle} />
+      <BackBtnMobile title={title} callback={() => setTitle('Hello!')} />
 
       <Layout title={title}>
         <Content>
