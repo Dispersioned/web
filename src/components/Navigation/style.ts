@@ -7,8 +7,11 @@ export const Wrapper = styled.nav`
   left: max(15px, 3vw);
   top: calc(10vh + 0.8rem);
 
-  @media (max-width: 1200px) {
-    top: calc(10.5vh);
+  @media (max-width: 1400px) {
+    top: calc(10.5vh)
+  }
+  @media (max-width: 1199px) {
+    top: calc(7.5vh);
   }
   @media (max-width: 991px) {
     top: calc(4vh);

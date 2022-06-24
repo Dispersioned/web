@@ -8,6 +8,9 @@ export const Wrapper = styled.div`
   row-gap: max(40px, 5vw);
   height: 100vh;
   padding-top: 10vh;
+  @media (max-width: 1199px) {
+    padding-top: 7vh;
+  }
   @media (max-width: 991px) {
     padding-top: 5vh;
   }
@@ -17,7 +20,7 @@ export const Wrapper = styled.div`
 export const Title = styled(Typography)`
   font-size: 5rem;
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1400px) {
     font-size: 4rem;
   }
   @media (max-width: 991px) {
