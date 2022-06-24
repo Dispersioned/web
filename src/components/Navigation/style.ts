@@ -11,7 +11,7 @@ export const Wrapper = styled.nav`
     top: calc(10.5vh);
   }
   @media (max-width: 991px) {
-    top: calc(4vh - 4px);
+    top: calc(4vh);
   }
 `
 
