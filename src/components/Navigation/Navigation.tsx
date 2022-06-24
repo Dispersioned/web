@@ -1,12 +1,9 @@
-import { IconButton } from '@mui/material'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
-import back from '../../assets/icons/back.svg'
 import burger from '../../assets/icons/burger.svg'
 import githubIcon from '../../assets/icons/githubIcon.svg'
 import headhunterIcon from '../../assets/icons/headhunterIcon.svg'
 import telegramIcon from '../../assets/icons/telegramIcon.svg'
-import { isMobile } from '../../services/sizes'
 import { Wrapper } from './style'
 
 const Navigation: React.FC = () => {
@@ -18,39 +15,50 @@ const Navigation: React.FC = () => {
         onHoverStart={() => setIsNavHovered(true)}
         onHoverEnd={() => setIsNavHovered(false)}
       >
-        {!isNavHovered && (
-          <motion.img
-            initial={{ width: 0, height: 0 }}
-            animate={{ opacity: 1, width: 64, height: 64 }}
-            src={burger}
-            alt="menu button"
-          />
-        )}
+        <motion.img
+          style={{ cursor: 'pointer' }}
+          animate={{ opacity: 1, width: 64, height: 64 }}
+          src={burger}
+          alt="menu button"
+        />
         <AnimatePresence>
           {isNavHovered && (
             <motion.div
               key="navigation"
-              initial={{ opacity: 0, pointerEvents: 'none', y: -60 }}
-              animate={{ opacity: 1, pointerEvents: 'all', y: -60 }}
-              exit={{ opacity: 0.2, pointerEvents: 'none', y: 0 }}
+              initial={{ opacity: 0, pointerEvents: 'none' }}
+              animate={{ opacity: 1, pointerEvents: 'all' }}
+              exit={{ opacity: 0.2, pointerEvents: 'none' }}
+              style={{ position: 'absolute', left: 0, right: 0, width: 64 }}
             >
               <motion.div
                 key="navigation-icon-github"
-                initial={{ y: 62, opacity: 0 }}
-                animate={{ y: -20, opacity: 1 }}
+                initial={{ y: -64, opacity: 0 }}
+                animate={{ y: 15, opacity: 1 }}
+                exit={{ y: -64, opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
                   <img src={githubIcon} alt="menu button" />
                 </a>
               </motion.div>
-              <a href="https://t.me/Dispersioned" target="_blank" rel="noreferrer">
-                <img src={telegramIcon} alt="menu button" />
-              </a>
+
+              <motion.div
+                key="navigation-icon-telegram"
+                initial={{ y: -64 - 64, opacity: 0 }}
+                animate={{ y: 30, opacity: 1 }}
+                exit={{ y: -64 - 64, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <a href="https://t.me/Dispersioned" target="_blank" rel="noreferrer">
+                  <img src={telegramIcon} alt="menu button" />
+                </a>
+              </motion.div>
+
               <motion.div
                 key="navigation-icon-headhunter"
-                initial={{ y: -65, opacity: 0 }}
-                animate={{ y: 20, opacity: 1 }}
+                initial={{ y: -64 - 64 - 64, opacity: 0 }}
+                animate={{ y: 45, opacity: 1 }}
+                exit={{ y: -64 - 64 - 64, opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 <a
