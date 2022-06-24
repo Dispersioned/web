@@ -19,8 +19,9 @@ const BackBtnMobile: React.FC<BackBtnMobileProps> = ({ title, callback }) => {
           onDrag={(_, info) => {
             if (info.offset.x < -120) callback()
           }}
-          src={back}
-        />
+        >
+          <img src={back} alt="previous page" />
+        </MobileOverlay>
       )}
     </AnimatePresence>
   )
