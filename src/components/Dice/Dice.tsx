@@ -2,11 +2,11 @@ import { Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { SECTIONS } from '../../config'
-import { closestCell, WelcomeGenerator } from '../../services/dice'
-import { DICE_CELL_SIZE, GAP } from '../../config'
+import { DICE_CELL_SIZE, GAP, SECTIONS } from '../../config'
+import { closestCell, generateBones, random, WelcomeGenerator } from '../../services/dice'
+import DiceCell from '../dice-cell/DiceCell'
 import { DiceProps, ICell, ITable } from './interface'
-import { Cell, GridLayer, Pointer, Wrapper } from './style'
+import { GridLayer, Pointer, Wrapper } from './style'
 
 // must be square
 const cellText: (string | null)[][] = [
@@ -25,6 +25,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null) // framer-motion and local coords offset
   const [zeroPoint, setZeroPoint] = useState<ICell | null>(null) // top left grid cell
   const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
+  const [bones] = useState(generateBones(random(2, 5)))
 
   useEffect(() => {
     // mock offset. Will be inited properly on first drag
@@ -90,7 +91,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
         {cells &&
           cells.map((row, y) =>
             row.map((_, x) => (
-              <Cell key={`${y}_${x}`}>
+              <DiceCell key={`${y}_${x}`} bones={bones[3 * y + x]}>
                 <motion.div
                   animate={{ opacity: selectedCell.row === y && selectedCell.col === x ? 0 : 1 }}
                   transition={{ duration: 0.2 }}
@@ -98,12 +99,13 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
                   <Typography
                     fontSize={20}
                     zIndex={100}
+                    position="relative"
                     style={{ pointerEvents: 'none', userSelect: 'none' }}
                   >
                     {cellText[y][x]}
                   </Typography>
                 </motion.div>
-              </Cell>
+              </DiceCell>
             ))
           )}
       </GridLayer>

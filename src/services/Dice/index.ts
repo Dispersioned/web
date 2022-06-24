@@ -50,3 +50,28 @@ export class WelcomeGenerator {
     return phrase
   }
 }
+
+export function random(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+export function generateBones(amount: number): number[] {
+  const all: number[] = Array(9).fill(0)
+
+  for (let i = 0; i < amount; i++) {
+    while (true) {
+      const pos = random(0, all.length - 1)
+      if (all[pos] !== 0) continue
+      while (true) {
+        const num = random(1, 5)
+        if (all.includes(num)) continue
+        all[pos] = num
+        break
+      }
+
+      break
+    }
+  }
+
+  return all
+}
