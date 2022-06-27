@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router'
@@ -12,7 +12,7 @@ import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile'
 import Layout from '../../components/ui/layout/Layout'
 import { SECTIONS } from '../../config'
 import { isMobile } from '../../services/sizes'
-import { ContentDesktop, ContentMobile } from '../Home/style'
+import { ContentDesktop, ContentMobile } from '../home/style'
 import { PointerWrapper, ProjectsList, ProjectsTitle } from './style'
 
 const Projects: React.FC = () => {
