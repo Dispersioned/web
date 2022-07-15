@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
-import burger from '../../assets/icons/burger.svg'
 import githubIcon from '../../assets/icons/githubIcon.svg'
 import headhunterIcon from '../../assets/icons/headhunterIcon.svg'
 import telegramIcon from '../../assets/icons/telegramIcon.svg'
@@ -60,14 +59,7 @@ const Navigation: React.FC = () => {
                 {...navBtnAnimation[2]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
-                <a
-                  href="#disabled"
-                  title="i don't wanna keep my hh up to date so link's disabled. Write to me in telegram"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(e) => {
-                    e.preventDefault()
-                  }}
+                <a href="https://rostov.hh.ru/applicant/resumes/view?resume=23e5510fff09055f900039ed1f327579537633" target="_blank" rel="noreferrer"
                 >
                   <img src={headhunterIcon} alt="menu button" />
                 </a>
