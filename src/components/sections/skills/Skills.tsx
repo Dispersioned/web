@@ -4,6 +4,9 @@ import React from 'react'
 import { SkillItem } from './style'
 
 const Skills: React.FC = () => {
+  const coreSkills = ["React", "JavaScript", "ES6+", "TypeScript", "SCSS", "Styled Components", "Material UI","Apollo GraphQL", "Git", "Figma", "Gulp", "Yarn" ]
+  const auxiliarySkills = ["Python", "Java", "Netlify CMS", "Firebase", "Axios", "Gatsby" ]
+
   return (
     <motion.div
       key="skills-section"
@@ -13,31 +16,16 @@ const Skills: React.FC = () => {
     >
       <Box marginBottom={2}>
         <Typography variant="h4">Core</Typography>
-        <SkillItem label="React" />
-        <SkillItem label="JavaScript" />
-        <SkillItem label="TypeScript" />
-        <SkillItem label="ES6+" />
-        <SkillItem label="Material UI" />
-        <SkillItem label="HTML" />
-        <SkillItem label="Styled Components" />
-        <SkillItem label="SCSS" />
-        <SkillItem label="GraphQL" />
-        <SkillItem label="Git" />
-        <SkillItem label="Figma" />
-        <SkillItem label="Heroku" />
-        <SkillItem label="Yarn" />
-        <SkillItem label="Gulp" />
+        {coreSkills.map((skill) => (
+          <SkillItem key={skill} label={skill} />
+        ))}
       </Box>
 
       <Box marginBottom={2}>
         <Typography variant="h4">Worked with</Typography>
-        <SkillItem label="Python" />
-        <SkillItem label="Java" />
-        <SkillItem label="Netlify CMS" />
-        <SkillItem label="Firebase" />
-        <SkillItem label="Axios" />
-        <SkillItem label="Mobx" />
-        <SkillItem label="Gatsby" />
+        {auxiliarySkills.map((skill) => (
+          <SkillItem key={skill} label={skill} />
+        ))}
       </Box>
     </motion.div>
   )
