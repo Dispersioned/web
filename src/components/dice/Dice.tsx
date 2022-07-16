@@ -22,15 +22,15 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
 
   const [point, setPoint] = useState<ICell>()
   const [animateTo, setAnimateTo] = useState<ICell>()
-  const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null) // framer-motion and local coords offset
+  const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>({
+    // mock offset. Will be inited properly on first drag
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+    settled: false,
+  }) // framer-motion and local coords offset
   const [zeroPoint, setZeroPoint] = useState<ICell | null>(null) // top left grid cell
   const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
   const [bones] = useState(generateBones(random(2, 5)))
-
-  useEffect(() => {
-    // mock offset. Will be inited properly on first drag
-    setOffset({ x: window.innerWidth / 2, y: window.innerHeight / 2, settled: false })
-  }, [])
 
   const handleInitOffset = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     if (!offset || offset.settled) return
