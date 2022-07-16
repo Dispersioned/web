@@ -54,10 +54,8 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
         }
         newCells.push(row)
       }
-
       return newCells
     }
-
     return generateCells(cellText)
   }, [topLeftCell])
 
