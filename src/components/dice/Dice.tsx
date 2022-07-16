@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { DICE_CELL_SIZE, GAP, SECTIONS } from '../../config'
 import { closestCell, generateBones, random, WelcomeGenerator } from '../../services/dice'
@@ -22,13 +22,22 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
 
   const [point, setPoint] = useState<ICell>()
   const [animateTo, setAnimateTo] = useState<ICell>()
-  const [offset, setOffset] = useState<(ICell & { settled: boolean })>({
+  const [offset, setOffset] = useState<ICell & { settled: boolean }>({
     // mock offset. Will be inited properly on first drag
     x: document.body.clientWidth / 2,
     y: document.body.clientHeight / 2,
     settled: false,
   }) // framer-motion and local coords offset
-  const [zeroPoint, setZeroPoint] = useState<ICell | null>(null) // top left grid cell
+
+  // top left grid cell
+  const zeroPoint = useMemo<ICell>(
+    () => ({
+      x: offset.x - DICE_CELL_SIZE - GAP,
+      y: offset.y - DICE_CELL_SIZE - GAP,
+    }),
+    [offset]
+  )
+
   const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
   const [bones] = useState(generateBones(random(2, 5)))
 
@@ -38,11 +47,6 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   }
 
   useEffect(() => {
-    setZeroPoint({ x: offset.x - DICE_CELL_SIZE - GAP, y: offset.y - DICE_CELL_SIZE - GAP })
-  }, [offset])
-
-  useEffect(() => {
-    if (!zeroPoint) return
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function generateCells(skeleton: any[][]) {
       let newCells: ITable = []
