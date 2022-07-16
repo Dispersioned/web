@@ -65,22 +65,22 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   const [bones] = useState(generateBones(random(2, 5)))
 
   useEffect(() => {
-    if (!point || !cells) return
+    if (!point) return
 
-    const { row, col } = closestCell(point, cells)
-    setSelectedCell({ row, col })
+    const cell = closestCell(point, cells)
+    setSelectedCell(cell)
+
+    const POINTER_COMPUTATIONAL_ERROR = -3
     const salt = Math.random() // needed for framer motion to recognize small movements
-    const pointerBugOffset = -3
-
+    const { row, col } = cell
     setAnimateTo({
-      x: cells[row][col].x - offset.x + salt + pointerBugOffset,
-      y: cells[row][col].y - offset.y + salt + pointerBugOffset,
+      x: cells[row][col].x - offset.x + salt + POINTER_COMPUTATIONAL_ERROR,
+      y: cells[row][col].y - offset.y + salt + POINTER_COMPUTATIONAL_ERROR,
     })
     if (row === 0 && col === 2) navigate('/projects')
 
-    if (cellText[row][col]) setTitle(cellText[row][col] as string)
-    else setTitle(WelcomeGenerator.generate())
-  }, [point])
+    setTitle(cellText[row][col] || WelcomeGenerator.generate())
+  }, [navigate, offset, cells, point, setTitle])
 
   return (
     <Wrapper ref={dragWrapper}>
