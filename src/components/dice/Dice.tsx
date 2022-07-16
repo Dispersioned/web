@@ -47,8 +47,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   const [bones] = useState(generateBones(random(2, 5)))
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function generateCells(skeleton: any[][]) {
+    function generateCells(skeleton: (string | null)[][]) {
       let newCells: ITable = []
 
       for (let i = 0; i < skeleton.length; i++) {
