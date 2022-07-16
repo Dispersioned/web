@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { DICE_CELL_SIZE, GAP, SECTIONS } from '../../config'
 import { closestCell, generateBones, random, WelcomeGenerator } from '../../services/dice'
@@ -18,72 +18,69 @@ const cellText: (string | null)[][] = [
 const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   const navigate = useNavigate()
   const dragWrapper = useRef(null)
-  const [cells, setCells] = useState<ITable>()
 
-  const [point, setPoint] = useState<ICell>()
-  const [animateTo, setAnimateTo] = useState<ICell>()
-  const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>(null) // framer-motion and local coords offset
-  const [zeroPoint, setZeroPoint] = useState<ICell | null>(null) // top left grid cell
-  const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
-  const [bones] = useState(generateBones(random(2, 5)))
-
-  useEffect(() => {
+  // offset for gluing framer-motion & dice pointer
+  const [offset, setOffset] = useState<ICell & { settled: boolean }>({
     // mock offset. Will be inited properly on first drag
-    setOffset({ x: window.innerWidth / 2, y: window.innerHeight / 2, settled: false })
-  }, [])
+    x: document.body.clientWidth / 2,
+    y: document.body.clientHeight / 2,
+    settled: false,
+  })
 
   const handleInitOffset = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (!offset || offset.settled) return
+    if (offset.settled) return
     setOffset({ x: info.point.x, y: info.point.y, settled: true })
   }
 
-  useEffect(() => {
-    if (!offset) return
-    setZeroPoint({ x: offset.x - DICE_CELL_SIZE - GAP, y: offset.y - DICE_CELL_SIZE - GAP })
-  }, [offset])
+  const topLeftCell = useMemo<ICell>(
+    () => ({
+      x: offset.x - DICE_CELL_SIZE - GAP,
+      y: offset.y - DICE_CELL_SIZE - GAP,
+    }),
+    [offset]
+  )
 
-  useEffect(() => {
-    if (!zeroPoint) return
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function generateCells(skeleton: any[][]) {
+  const cells = useMemo<ITable>(() => {
+    function generateCells(skeleton: (string | null)[][]) {
       let newCells: ITable = []
 
       for (let i = 0; i < skeleton.length; i++) {
         const row = []
         for (let j = 0; j < skeleton.length; j++) {
           row.push({
-            x: zeroPoint!.x + (DICE_CELL_SIZE + GAP) * j,
-            y: zeroPoint!.y + (DICE_CELL_SIZE + GAP) * i,
+            x: topLeftCell!.x + (DICE_CELL_SIZE + GAP) * j,
+            y: topLeftCell!.y + (DICE_CELL_SIZE + GAP) * i,
           })
         }
         newCells.push(row)
       }
-
       return newCells
     }
+    return generateCells(cellText)
+  }, [topLeftCell])
 
-    const newCells = generateCells(cellText)
-
-    setCells(newCells)
-  }, [zeroPoint])
+  const [point, setPoint] = useState<ICell>()
+  const [animateTo, setAnimateTo] = useState<ICell>()
+  const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
+  const [bones] = useState(generateBones(random(2, 5)))
 
   useEffect(() => {
-    if (!point || !cells || !offset) return
+    if (!point) return
 
-    const { row, col } = closestCell(point, cells)
-    setSelectedCell({ row, col })
+    const cell = closestCell(point, cells)
+    setSelectedCell(cell)
+
+    const POINTER_COMPUTATIONAL_ERROR = -3
     const salt = Math.random() // needed for framer motion to recognize small movements
-    const pointerBugOffset = -3
-
+    const { row, col } = cell
     setAnimateTo({
-      x: cells[row][col].x - offset.x + salt + pointerBugOffset,
-      y: cells[row][col].y - offset.y + salt + pointerBugOffset,
+      x: cells[row][col].x - offset.x + salt + POINTER_COMPUTATIONAL_ERROR,
+      y: cells[row][col].y - offset.y + salt + POINTER_COMPUTATIONAL_ERROR,
     })
     if (row === 0 && col === 2) navigate('/projects')
 
-    if (cellText[row][col]) setTitle(cellText[row][col] as string)
-    else setTitle(WelcomeGenerator.generate())
-  }, [point])
+    setTitle(cellText[row][col] || WelcomeGenerator.generate())
+  }, [navigate, offset, cells, point, setTitle])
 
   return (
     <Wrapper ref={dragWrapper}>
