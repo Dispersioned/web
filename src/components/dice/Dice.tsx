@@ -40,13 +40,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
     [offset]
   )
 
-  const [cells, setCells] = useState<ITable>()
-  const [point, setPoint] = useState<ICell>()
-  const [animateTo, setAnimateTo] = useState<ICell>()
-  const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
-  const [bones] = useState(generateBones(random(2, 5)))
-
-  useEffect(() => {
+  const cells = useMemo<ITable>(() => {
     function generateCells(skeleton: (string | null)[][]) {
       let newCells: ITable = []
 
@@ -64,10 +58,13 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
       return newCells
     }
 
-    const newCells = generateCells(cellText)
-
-    setCells(newCells)
+    return generateCells(cellText)
   }, [topLeftCell])
+
+  const [point, setPoint] = useState<ICell>()
+  const [animateTo, setAnimateTo] = useState<ICell>()
+  const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
+  const [bones] = useState(generateBones(random(2, 5)))
 
   useEffect(() => {
     if (!point || !cells) return
