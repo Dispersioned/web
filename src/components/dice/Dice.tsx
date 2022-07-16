@@ -18,16 +18,19 @@ const cellText: (string | null)[][] = [
 const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   const navigate = useNavigate()
   const dragWrapper = useRef(null)
-  const [cells, setCells] = useState<ITable>()
 
-  const [point, setPoint] = useState<ICell>()
-  const [animateTo, setAnimateTo] = useState<ICell>()
+  // offset for gluing framer-motion & dice pointer
   const [offset, setOffset] = useState<ICell & { settled: boolean }>({
     // mock offset. Will be inited properly on first drag
     x: document.body.clientWidth / 2,
     y: document.body.clientHeight / 2,
     settled: false,
-  }) // framer-motion and local coords offset
+  })
+
+  const handleInitOffset = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (offset.settled) return
+    setOffset({ x: info.point.x, y: info.point.y, settled: true })
+  }
 
   const topLeftCell = useMemo<ICell>(
     () => ({
@@ -37,13 +40,11 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
     [offset]
   )
 
+  const [cells, setCells] = useState<ITable>()
+  const [point, setPoint] = useState<ICell>()
+  const [animateTo, setAnimateTo] = useState<ICell>()
   const [selectedCell, setSelectedCell] = useState({ row: 1, col: 1 })
   const [bones] = useState(generateBones(random(2, 5)))
-
-  const handleInitOffset = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (offset.settled) return
-    setOffset({ x: info.point.x, y: info.point.y, settled: true })
-  }
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
