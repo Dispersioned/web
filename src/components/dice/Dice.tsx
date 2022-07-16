@@ -22,7 +22,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
 
   const [point, setPoint] = useState<ICell>()
   const [animateTo, setAnimateTo] = useState<ICell>()
-  const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>({
+  const [offset, setOffset] = useState<(ICell & { settled: boolean })>({
     // mock offset. Will be inited properly on first drag
     x: document.body.clientWidth / 2,
     y: document.body.clientHeight / 2,
@@ -33,12 +33,11 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   const [bones] = useState(generateBones(random(2, 5)))
 
   const handleInitOffset = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (!offset || offset.settled) return
+    if (offset.settled) return
     setOffset({ x: info.point.x, y: info.point.y, settled: true })
   }
 
   useEffect(() => {
-    if (!offset) return
     setZeroPoint({ x: offset.x - DICE_CELL_SIZE - GAP, y: offset.y - DICE_CELL_SIZE - GAP })
   }, [offset])
 
@@ -68,7 +67,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   }, [zeroPoint])
 
   useEffect(() => {
-    if (!point || !cells || !offset) return
+    if (!point || !cells) return
 
     const { row, col } = closestCell(point, cells)
     setSelectedCell({ row, col })
