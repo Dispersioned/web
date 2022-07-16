@@ -24,8 +24,8 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
   const [animateTo, setAnimateTo] = useState<ICell>()
   const [offset, setOffset] = useState<(ICell & { settled: boolean }) | null>({
     // mock offset. Will be inited properly on first drag
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2,
+    x: document.body.clientWidth / 2,
+    y: document.body.clientHeight / 2,
     settled: false,
   }) // framer-motion and local coords offset
   const [zeroPoint, setZeroPoint] = useState<ICell | null>(null) // top left grid cell
