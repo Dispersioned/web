@@ -29,8 +29,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
     settled: false,
   }) // framer-motion and local coords offset
 
-  // top left grid cell
-  const zeroPoint = useMemo<ICell>(
+  const topLeftCell = useMemo<ICell>(
     () => ({
       x: offset.x - DICE_CELL_SIZE - GAP,
       y: offset.y - DICE_CELL_SIZE - GAP,
@@ -55,8 +54,8 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
         const row = []
         for (let j = 0; j < skeleton.length; j++) {
           row.push({
-            x: zeroPoint!.x + (DICE_CELL_SIZE + GAP) * j,
-            y: zeroPoint!.y + (DICE_CELL_SIZE + GAP) * i,
+            x: topLeftCell!.x + (DICE_CELL_SIZE + GAP) * j,
+            y: topLeftCell!.y + (DICE_CELL_SIZE + GAP) * i,
           })
         }
         newCells.push(row)
@@ -68,7 +67,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
     const newCells = generateCells(cellText)
 
     setCells(newCells)
-  }, [zeroPoint])
+  }, [topLeftCell])
 
   useEffect(() => {
     if (!point || !cells) return
