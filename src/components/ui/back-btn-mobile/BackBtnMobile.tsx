@@ -12,12 +12,13 @@ const BackBtnMobile: React.FC<BackBtnMobileProps> = ({ title, callback }) => {
       {isMobile() && !WelcomeGenerator.phrases.includes(title) && (
         <MobileOverlay
           key="back"
-          drag={isMobile() ? 'x' : false}
+          drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           initial={{ x: 0, y: 0 }}
-          transition={{ duration: 2 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
           onDrag={(_, info) => {
-            if (info.offset.x < -120) callback()
+            if (info.offset.x > 125) callback()
           }}
         >
           <img src={back} alt="previous page" />
