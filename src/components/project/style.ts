@@ -1,5 +1,4 @@
-import { Chip } from '@mui/material';
-import styled from 'styled-components';
+import { Chip, styled } from '@mui/material';
 
 export const Wrapper = styled('div')`
   background-color: var(--color-gray-100);

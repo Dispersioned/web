@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled('div')`
   position: relative;
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   border-radius: 5px;
 `;
 
-export const Background = styled.img`
+export const Background = styled('img')`
   position: absolute;
   left: 0;
   top: 0;

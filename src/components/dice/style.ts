@@ -1,8 +1,8 @@
+import { styled } from '@mui/material';
 import { motion } from 'framer-motion';
 import { DICE_CELL_SIZE, DICE_SIZE, GAP } from 'shared/config/sizes';
-import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled('div')`
   position: relative;
   width: ${`${DICE_SIZE}px`};
   height: ${`${DICE_SIZE}px`};
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
-export const GridLayer = styled.div`
+export const GridLayer = styled('div')`
   position: absolute;
   left: 0;
   top: 0;

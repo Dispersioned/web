@@ -1,7 +1,6 @@
-import { Typography } from '@mui/material';
-import styled from 'styled-components';
+import { Typography, styled } from '@mui/material';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled('div')`
   position: relative;
   display: grid;
   grid-template-rows: fit-content(100%) fit-content(100%);

@@ -1,5 +1,4 @@
-import { Grid, Typography } from '@mui/material';
-import styled from 'styled-components';
+import { Grid, Typography, styled } from '@mui/material';
 
 export const ProjectsTitle = styled(Typography)`
   position: sticky;

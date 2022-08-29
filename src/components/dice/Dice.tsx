@@ -90,6 +90,7 @@ export function Dice({ setTitle }: DiceProps) {
         {cells &&
           cells.map((row, y) =>
             row.map((_, x) => (
+              // eslint-disable-next-line react/no-array-index-key
               <DiceCell key={`${y}_${x}`} bones={bones[3 * y + x]}>
                 <motion.div
                   animate={{ opacity: selectedCell.row === y && selectedCell.col === x ? 0 : 1 }}

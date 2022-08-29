@@ -3,16 +3,17 @@ import { BrowserRouter } from 'react-router-dom';
 
 import '../assets/fonts/index';
 import { Router } from './router/Router';
-import GlobalStyle from './style/global';
+import { GlobalStyleProvider } from './style/global';
 import theme from './style/theme';
 
 export function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
-    </ThemeProvider>
+    <GlobalStyleProvider>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </ThemeProvider>
+    </GlobalStyleProvider>
   );
 }

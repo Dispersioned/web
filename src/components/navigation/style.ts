@@ -1,7 +1,7 @@
+import { styled } from '@mui/material';
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
 
-export const Wrapper = styled.nav`
+export const Wrapper = styled('nav')`
   position: fixed;
   z-index: 1001;
   left: max(15px, 3vw);
@@ -18,7 +18,7 @@ export const Wrapper = styled.nav`
   }
 `;
 
-export const BurgerIcon = styled.div<{ active: boolean }>`
+export const BurgerIcon = styled('div')<{ active: boolean }>`
   position: relative;
   width: 64px;
   height: 64px;
