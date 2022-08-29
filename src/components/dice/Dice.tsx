@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { DICE_CELL_SIZE, GAP, SECTIONS } from '../../config'
 import { closestCell, generateBones, random, WelcomeGenerator } from '../../services/dice'
+import { ROUTES } from '../../shared/config/routes'
 import DiceCell from '../dice-cell/DiceCell'
 import { DiceProps, ICell, ITable } from './interface'
 import { GridLayer, Pointer, Wrapper } from './style'
@@ -77,7 +78,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
       x: cells[row][col].x - offset.x + salt + POINTER_COMPUTATIONAL_ERROR,
       y: cells[row][col].y - offset.y + salt + POINTER_COMPUTATIONAL_ERROR,
     })
-    if (row === 0 && col === 2) navigate('/projects')
+    if (row === 0 && col === 2) navigate(ROUTES.projects)
 
     setTitle(cellText[row][col] || WelcomeGenerator.generate())
   }, [navigate, offset, cells, point, setTitle])

@@ -12,6 +12,7 @@ import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile'
 import Layout from '../../components/ui/layout/Layout'
 import { SECTIONS } from '../../config'
 import { isMobile } from '../../services/sizes'
+import { ROUTES } from '../../shared/config/routes'
 import { ContentDesktop, ContentMobile } from '../home/style'
 import { PointerWrapper, ProjectsList, ProjectsTitle } from './style'
 
@@ -31,7 +32,7 @@ const Projects: React.FC = () => {
         <BackBtnMobile
           title={SECTIONS.PROJECTS}
           callback={() => {
-            if (location.pathname !== '/web') navigate('/web')
+            if (location.pathname !== ROUTES.home) navigate(ROUTES.home)
           }}
         />
         <Layout title={SECTIONS.PROJECTS}>
