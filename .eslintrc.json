@@ -21,9 +21,7 @@
         "args": "none"
       }
     ],
-    "@typescript-eslint/semi": [
-      "off"
-    ],
+    "@typescript-eslint/semi": ["off"],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -47,13 +45,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.test.js",
-          "**/*.test.jsx",
-          "**/*.test.ts",
-          "**/*.test.tsx",
-          "src/tests/**/*"
-        ]
+        "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/*.test.ts", "**/*.test.tsx", "src/tests/**/*"]
       }
     ],
     "react/jsx-props-no-spreading": "off",
