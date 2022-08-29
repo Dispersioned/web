@@ -13,7 +13,7 @@ import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile';
 import { SECTIONS } from '../../config';
 import { isMobile } from '../../services/sizes';
 import { ROUTES } from '../../shared/config/routes';
-import { Layout } from '../../shared/config/ui/layout';
+import { Layout } from '../../shared/ui/layout';
 import { ContentDesktop, ContentMobile } from '../home/style';
 import { PointerWrapper, ProjectsList, ProjectsTitle } from './style';
 

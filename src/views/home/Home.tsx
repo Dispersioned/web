@@ -12,7 +12,7 @@ import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile';
 import { SECTIONS } from '../../config';
 import { WelcomeGenerator } from '../../services/dice';
 import { isMobile } from '../../services/sizes';
-import { Layout } from '../../shared/config/ui/layout';
+import { Layout } from '../../shared/ui/layout';
 import { ContentColumn, ContentDesktop, ContentMobile } from './style';
 
 export function Home() {
