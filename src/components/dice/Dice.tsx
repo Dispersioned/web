@@ -1,11 +1,12 @@
 import { Typography } from '@mui/material';
+import { DiceCell } from 'components/dice-cell/DiceCell';
 import { PanInfo, motion } from 'framer-motion';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { ROUTES } from 'shared/config/routes';
-import { SECTIONS } from 'shared/config/sizes';
+import { DICE_CELL_SIZE, GAP, SECTIONS } from 'shared/config/sizes';
+import { WelcomeGenerator, closestCell, generateBones, random } from 'shared/lib/dice';
 
-import DiceCell from '../dice-cell/DiceCell';
 import { GridLayer, Pointer, Wrapper } from './style';
 import { DiceProps, ICell, ITable } from './types';
 

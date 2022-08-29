@@ -1,11 +1,11 @@
 import { Container, Grid } from '@mui/material';
-import Animations from 'components/animations/Animations';
-import Dice from 'components/dice/Dice';
-import Navigation from 'components/navigation/Navigation';
-import AboutMe from 'components/sections/about-me/AboutMe';
-import Experience from 'components/sections/experience/Experience';
-import Skills from 'components/sections/skills/Skills';
-import BackBtnMobile from 'components/ui/back-btn-mobile/BackBtnMobile';
+import { Animations } from 'components/animations/Animations';
+import { Dice } from 'components/dice/Dice';
+import { Navigation } from 'components/navigation/Navigation';
+import { AboutMe } from 'components/sections/about-me/AboutMe';
+import { Experience } from 'components/sections/experience/Experience';
+import { Skills } from 'components/sections/skills/Skills';
+import { BackBtnMobile } from 'components/ui/back-btn-mobile/BackBtnMobile';
 import { AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
 import { SECTIONS } from 'shared/config/sizes';
