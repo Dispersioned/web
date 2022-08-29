@@ -1,19 +1,18 @@
-import { ThemeProvider } from '@mui/material'
-import { BrowserRouter } from 'react-router-dom'
-import '../assets/fonts/index'
-import Router from './router/Router'
-import GlobalStyle from './style/global'
-import theme from './style/theme'
+import { ThemeProvider } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+import '../assets/fonts/index';
+import { Router } from './router/Router';
+import { GlobalStyle } from './style/global';
+import theme from './style/theme';
+
+export function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
       <BrowserRouter>
+        <GlobalStyle />
         <Router />
       </BrowserRouter>
     </ThemeProvider>
-  )
+  );
 }
-
-export default App

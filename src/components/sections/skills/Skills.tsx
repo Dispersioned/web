@@ -1,19 +1,28 @@
-import { Box, Typography } from '@mui/material'
-import { motion } from 'framer-motion'
-import React from 'react'
-import { SkillItem } from './style'
+import { Box, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import React from 'react';
 
-const Skills: React.FC = () => {
-  const coreSkills = ["React", "JavaScript", "ES6+", "TypeScript", "SCSS", "Styled Components", "Material UI","Apollo GraphQL", "Git", "Figma", "Gulp", "Yarn" ]
-  const auxiliarySkills = ["Python", "Java", "Netlify CMS", "Firebase", "Axios", "Gatsby" ]
+import { SkillItem } from './style';
+
+export function Skills() {
+  const coreSkills = [
+    'React',
+    'JavaScript',
+    'ES6+',
+    'TypeScript',
+    'SCSS',
+    'Styled Components',
+    'Material UI',
+    'Apollo GraphQL',
+    'Git',
+    'Figma',
+    'Gulp',
+    'Yarn',
+  ];
+  const auxiliarySkills = ['Python', 'Java', 'Netlify CMS', 'Firebase', 'Axios', 'Gatsby'];
 
   return (
-    <motion.div
-      key="skills-section"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <motion.div key="skills-section" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Box marginBottom={2}>
         <Typography variant="h4">Core</Typography>
         {coreSkills.map((skill) => (
@@ -28,6 +37,5 @@ const Skills: React.FC = () => {
         ))}
       </Box>
     </motion.div>
-  )
+  );
 }
-export default Skills

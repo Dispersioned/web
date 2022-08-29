@@ -1,12 +1,13 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import React, { useState } from 'react'
-import githubIcon from '../../assets/icons/githubIcon.svg'
-import headhunterIcon from '../../assets/icons/headhunterIcon.svg'
-import telegramIcon from '../../assets/icons/telegramIcon.svg'
-import { BurgerIcon, NavBtn, Wrapper } from './style'
+import githubIcon from 'assets/icons/githubIcon.svg';
+import headhunterIcon from 'assets/icons/headhunterIcon.svg';
+import telegramIcon from 'assets/icons/telegramIcon.svg';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
 
-const Navigation: React.FC = () => {
-  const [isActive, setIsActive] = useState(false)
+import { BurgerIcon, NavBtn, Wrapper } from './style';
+
+export function Navigation() {
+  const [isActive, setIsActive] = useState(false);
 
   const navBtnAnimation = [0, 1, 2].map((index) => ({
     initial: 'initial',
@@ -17,13 +18,13 @@ const Navigation: React.FC = () => {
       animate: { y: 15 * (index + 1), opacity: 1 },
       exit: { y: -64 * (index + 1), opacity: 0 },
     },
-  }))
+  }));
 
   return (
     <Wrapper>
       <motion.div>
         <BurgerIcon active={isActive} onClick={() => setIsActive(!isActive)}>
-          <span></span>
+          <span />
         </BurgerIcon>
         <AnimatePresence>
           {isActive && (
@@ -59,7 +60,10 @@ const Navigation: React.FC = () => {
                 {...navBtnAnimation[2]}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
-                <a href="https://rostov.hh.ru/applicant/resumes/view?resume=23e5510fff09055f900039ed1f327579537633" target="_blank" rel="noreferrer"
+                <a
+                  href="https://rostov.hh.ru/applicant/resumes/view?resume=23e5510fff09055f900039ed1f327579537633"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <img src={headhunterIcon} alt="menu button" />
                 </a>
@@ -69,6 +73,5 @@ const Navigation: React.FC = () => {
         </AnimatePresence>
       </motion.div>
     </Wrapper>
-  )
+  );
 }
-export default Navigation

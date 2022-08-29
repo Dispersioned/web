@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import { styled } from '@mui/material';
 
-export const Gears = styled.div`
+export const Gears = styled('div')`
   z-index: 100;
 
   #gear1 {
@@ -22,4 +22,4 @@ export const Gears = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;

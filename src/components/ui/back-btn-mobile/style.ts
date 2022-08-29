@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styled from 'styled-components'
+import { styled } from '@mui/material';
+import { motion } from 'framer-motion';
 
 export const MobileOverlay = styled(motion.div)`
   position: fixed;
@@ -12,9 +12,9 @@ export const MobileOverlay = styled(motion.div)`
 
   img {
     background-color: var(--color-gray-100);
-    box-shadow: 4px 3px 8px var(--color-gray-200);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
     padding: 5px 10px;
     border-radius: 7px;
     transform: translateX(-50%);
   }
-`
+`;

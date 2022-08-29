@@ -1,11 +1,12 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import React from 'react'
-import gear1 from '../../assets/icons/gear1.svg'
-import gear2 from '../../assets/icons/gear2.svg'
-import { AnimationsProps } from './interface'
-import { Gears } from './style'
+import gear1 from 'assets/icons/gear1.svg';
+import gear2 from 'assets/icons/gear2.svg';
+import { AnimatePresence, motion } from 'framer-motion';
+import React from 'react';
 
-const Animations: React.FC<AnimationsProps> = ({ shouldShow }) => {
+import { AnimationsProps } from './interface';
+import { Gears } from './style';
+
+export function Animations({ shouldShow }: AnimationsProps) {
   return (
     <Gears>
       <AnimatePresence>
@@ -33,6 +34,5 @@ const Animations: React.FC<AnimationsProps> = ({ shouldShow }) => {
         )}
       </AnimatePresence>
     </Gears>
-  )
+  );
 }
-export default Animations

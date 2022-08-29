@@ -1,11 +1,10 @@
-import { Chip } from '@mui/material'
-import styled from 'styled-components'
+import { Chip, styled } from '@mui/material';
 
 export const Wrapper = styled('div')`
   background-color: var(--color-gray-100);
   border-radius: 5px;
   padding: 1rem 2rem;
-`
+`;
 
 export const Tag = styled(Chip)<{ $active: boolean }>`
   font-size: 1rem;
@@ -15,10 +14,10 @@ export const Tag = styled(Chip)<{ $active: boolean }>`
     margin-left: 12px;
   }
   background-color: ${(props) => (props.$active ? 'violet' : 'var(--color-gray-200))')};
-`
+`;
 
 export const ProjectLink = styled('a')`
   :visited {
     color: inherit;
   }
-`
+`;
