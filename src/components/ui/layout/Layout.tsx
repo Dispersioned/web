@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
-import { LayoutProps } from './interface';
 import { Title, Wrapper } from './style';
 
-const Layout: React.FC<LayoutProps> = ({ title, children }) => {
+export type LayoutProps = React.PropsWithChildren<{
+  title: string;
+}>;
+
+export function Layout({ title, children }: LayoutProps) {
   return (
     <Wrapper>
       <Title variant="h1" align="center">
@@ -16,5 +19,4 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
       {children}
     </Wrapper>
   );
-};
-export default Layout;
+}

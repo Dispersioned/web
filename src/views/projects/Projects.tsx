@@ -1,38 +1,34 @@
-import { Container, Typography } from '@mui/material'
-import { motion } from 'framer-motion'
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router'
-import cloverly from '../../assets/img/projects-preview/cloverly.jpg'
-import kovmangal from '../../assets/img/projects-preview/kovmangal.jpg'
-import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineering.jpg'
-import { Pointer } from '../../components/dice/style'
-import Navigation from '../../components/navigation/Navigation'
-import Project from '../../components/project/Project'
-import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile'
-import Layout from '../../components/ui/layout/Layout'
-import { SECTIONS } from '../../config'
-import { isMobile } from '../../services/sizes'
-import { ROUTES } from '../../shared/config/routes'
-import { ContentDesktop, ContentMobile } from '../home/style'
-import { PointerWrapper, ProjectsList, ProjectsTitle } from './style'
+import { Container, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router';
 
-const Projects: React.FC = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const Content = isMobile() ? ContentMobile : ContentDesktop
+import cloverly from '../../assets/img/projects-preview/cloverly.jpg';
+import kovmangal from '../../assets/img/projects-preview/kovmangal.jpg';
+import zavkomEngineering from '../../assets/img/projects-preview/zavkomEngineering.jpg';
+import { Pointer } from '../../components/dice/style';
+import Navigation from '../../components/navigation/Navigation';
+import Project from '../../components/project/Project';
+import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile';
+import { Layout } from '../../components/ui/layout';
+import { SECTIONS } from '../../config';
+import { isMobile } from '../../services/sizes';
+import { ROUTES } from '../../shared/config/routes';
+import { ContentDesktop, ContentMobile } from '../home/style';
+import { PointerWrapper, ProjectsList, ProjectsTitle } from './style';
+
+export function Projects() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const Content = isMobile() ? ContentMobile : ContentDesktop;
 
   return (
-    <motion.div
-      key="projects-section"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <motion.div key="projects-section" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Container maxWidth="xl">
         <BackBtnMobile
           title={SECTIONS.PROJECTS}
           callback={() => {
-            if (location.pathname !== ROUTES.home) navigate(ROUTES.home)
+            if (location.pathname !== ROUTES.home) navigate(ROUTES.home);
           }}
         />
         <Layout title={SECTIONS.PROJECTS}>
@@ -61,12 +57,7 @@ const Projects: React.FC = () => {
                 tags={['HTML', 'SCSS', 'Gulp']}
               />
             </ProjectsList>
-            <PointerWrapper
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-            >
+            <PointerWrapper container direction="column" justifyContent="center" alignItems="center">
               <Pointer
                 onClick={() => navigate(ROUTES.home)}
                 animate={{
@@ -102,6 +93,5 @@ const Projects: React.FC = () => {
         <Navigation />
       </Container>
     </motion.div>
-  )
+  );
 }
-export default Projects

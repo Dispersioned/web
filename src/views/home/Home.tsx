@@ -9,13 +9,13 @@ import AboutMe from '../../components/sections/about-me/AboutMe';
 import Experience from '../../components/sections/experience/Experience';
 import Skills from '../../components/sections/skills/Skills';
 import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile';
-import Layout from '../../components/ui/layout/Layout';
+import { Layout } from '../../components/ui/layout';
 import { SECTIONS } from '../../config';
 import { WelcomeGenerator } from '../../services/dice';
 import { isMobile } from '../../services/sizes';
 import { ContentColumn, ContentDesktop, ContentMobile } from './style';
 
-const Home: React.FC = () => {
+export function Home() {
   const [title, setTitle] = useState('Hello!');
   const Content = isMobile() ? ContentMobile : ContentDesktop;
 
@@ -62,5 +62,4 @@ const Home: React.FC = () => {
       </Layout>
     </Container>
   );
-};
-export default Home;
+}
