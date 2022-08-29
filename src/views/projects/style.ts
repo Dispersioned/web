@@ -1,5 +1,5 @@
-import { Grid, Typography } from '@mui/material'
-import styled from 'styled-components'
+import { Grid, Typography } from '@mui/material';
+import styled from 'styled-components';
 
 export const ProjectsTitle = styled(Typography)`
   position: sticky;
@@ -8,7 +8,7 @@ export const ProjectsTitle = styled(Typography)`
   background-color: var(--color-gray-100);
   border-radius: 5px;
   padding: 10px 15px;
-`
+`;
 
 export const PointerWrapper = styled(Grid)`
   width: 70px;
@@ -17,7 +17,7 @@ export const PointerWrapper = styled(Grid)`
     width: 0;
     height: 0;
   }
-`
+`;
 
 export const ProjectsList = styled('div')`
   display: grid;
@@ -26,4 +26,4 @@ export const ProjectsList = styled('div')`
   overflow: auto;
   max-height: 100%;
   padding-right: 12px;
-`
+`;

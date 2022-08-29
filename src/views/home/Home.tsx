@@ -9,10 +9,10 @@ import AboutMe from '../../components/sections/about-me/AboutMe';
 import Experience from '../../components/sections/experience/Experience';
 import Skills from '../../components/sections/skills/Skills';
 import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile';
-import { Layout } from '../../components/ui/layout';
 import { SECTIONS } from '../../config';
 import { WelcomeGenerator } from '../../services/dice';
 import { isMobile } from '../../services/sizes';
+import { Layout } from '../../shared/config/ui/layout';
 import { ContentColumn, ContentDesktop, ContentMobile } from './style';
 
 export function Home() {

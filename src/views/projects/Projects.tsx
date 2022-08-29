@@ -10,10 +10,10 @@ import { Pointer } from '../../components/dice/style';
 import Navigation from '../../components/navigation/Navigation';
 import Project from '../../components/project/Project';
 import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile';
-import { Layout } from '../../components/ui/layout';
 import { SECTIONS } from '../../config';
 import { isMobile } from '../../services/sizes';
 import { ROUTES } from '../../shared/config/routes';
+import { Layout } from '../../shared/config/ui/layout';
 import { ContentDesktop, ContentMobile } from '../home/style';
 import { PointerWrapper, ProjectsList, ProjectsTitle } from './style';
 

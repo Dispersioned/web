@@ -1,12 +1,11 @@
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { ROUTES } from 'shared/config/routes';
+import { Home } from 'views/home';
+import { Projects } from 'views/projects';
 
-import { ROUTES } from '../../shared/config/routes';
-import Home from '../../views/home/Home';
-import Projects from '../../views/projects/Projects';
-
-const Router: React.FC = () => {
+export function Router() {
   const location = useLocation();
 
   return (
@@ -18,5 +17,4 @@ const Router: React.FC = () => {
       </Routes>
     </AnimatePresence>
   );
-};
-export default Router;
+}

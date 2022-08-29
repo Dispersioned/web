@@ -4,9 +4,9 @@ export enum SIZES {
 }
 
 export function getWindowSize() {
-  return window.innerWidth <= 1024 ? SIZES.MOBILE : SIZES.DESKTOP
+  return window.innerWidth <= 1024 ? SIZES.MOBILE : SIZES.DESKTOP;
 }
 
 export function isMobile() {
-  return getWindowSize() === SIZES.MOBILE
+  return getWindowSize() === SIZES.MOBILE;
 }
