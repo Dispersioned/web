@@ -1,4 +1,5 @@
-import { Typography, css, styled } from '@mui/material';
+import { Typography, styled } from '@mui/material';
+import { createGlobalStyle, css } from 'styled-components';
 
 const resetStyles = css`
   /* Global */
@@ -163,7 +164,7 @@ const resetStyles = css`
   }
 `;
 
-export const GlobalStyleProvider = styled('div')`
+export const GlobalStyle = createGlobalStyle`
   ${resetStyles}
 
   :root {
