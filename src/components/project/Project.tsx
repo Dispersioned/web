@@ -3,15 +3,15 @@ import React from 'react';
 
 import { ProjectLink, Tag, Wrapper } from './style';
 
-interface ProjectProps {
+type ProjectProps = {
   title: string;
   description: string;
   tags: string[];
   link: string;
   imageURL?: string;
-}
+};
 
-const Project: React.FC<ProjectProps> = ({ title, description, tags, link, imageURL }) => {
+export function Project({ title, description, tags, link, imageURL }: ProjectProps) {
   return (
     <Wrapper>
       <ProjectLink href={link} target="_blank" rel="noreferrer">
@@ -28,5 +28,4 @@ const Project: React.FC<ProjectProps> = ({ title, description, tags, link, image
       {imageURL && <img src={imageURL} alt={title} />}
     </Wrapper>
   );
-};
-export default Project;
+}

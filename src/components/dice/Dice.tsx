@@ -2,22 +2,21 @@ import { Typography } from '@mui/material';
 import { PanInfo, motion } from 'framer-motion';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { ROUTES } from 'shared/config/routes';
+import { SECTIONS } from 'shared/config/sizes';
 
-import { DICE_CELL_SIZE, GAP, SECTIONS } from '../../config';
-import { WelcomeGenerator, closestCell, generateBones, random } from '../../services/dice';
-import { ROUTES } from '../../shared/config/routes';
 import DiceCell from '../dice-cell/DiceCell';
-import { DiceProps, ICell, ITable } from './interface';
 import { GridLayer, Pointer, Wrapper } from './style';
+import { DiceProps, ICell, ITable } from './types';
 
 // must be square
 const cellText: (string | null)[][] = [
-  [SECTIONS.ABOUT_ME, null, SECTIONS.PROJECTS],
+  [SECTIONS.aboutMe, null, SECTIONS.projects],
   [null, null, null],
-  [SECTIONS.SKILLS, null, SECTIONS.EXPERIENCE],
+  [SECTIONS.skills, null, SECTIONS.experience],
 ];
 
-const Dice: React.FC<DiceProps> = ({ setTitle }) => {
+export function Dice({ setTitle }: DiceProps) {
   const navigate = useNavigate();
   const dragWrapper = useRef(null);
 
@@ -44,7 +43,7 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
 
   const cells = useMemo<ITable>(() => {
     function generateCells(skeleton: (string | null)[][]) {
-      let newCells: ITable = [];
+      const newCells: ITable = [];
 
       for (let i = 0; i < skeleton.length; i++) {
         const row = [];
@@ -124,5 +123,4 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
       </Pointer>
     </Wrapper>
   );
-};
-export default Dice;
+}

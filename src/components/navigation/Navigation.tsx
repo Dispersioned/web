@@ -1,12 +1,12 @@
+import githubIcon from 'assets/icons/githubIcon.svg';
+import headhunterIcon from 'assets/icons/headhunterIcon.svg';
+import telegramIcon from 'assets/icons/telegramIcon.svg';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
-import githubIcon from '../../assets/icons/githubIcon.svg';
-import headhunterIcon from '../../assets/icons/headhunterIcon.svg';
-import telegramIcon from '../../assets/icons/telegramIcon.svg';
 import { BurgerIcon, NavBtn, Wrapper } from './style';
 
-const Navigation: React.FC = () => {
+export function Navigation() {
   const [isActive, setIsActive] = useState(false);
 
   const navBtnAnimation = [0, 1, 2].map((index) => ({
@@ -74,5 +74,4 @@ const Navigation: React.FC = () => {
       </motion.div>
     </Wrapper>
   );
-};
-export default Navigation;
+}

@@ -4,7 +4,7 @@ import React from 'react';
 
 import { SkillItem } from './style';
 
-const Skills: React.FC = () => {
+export function Skills() {
   const coreSkills = [
     'React',
     'JavaScript',
@@ -38,5 +38,4 @@ const Skills: React.FC = () => {
       </Box>
     </motion.div>
   );
-};
-export default Skills;
+}

@@ -1,13 +1,17 @@
+import back from 'assets/icons/back.svg';
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
+import { WelcomeGenerator } from 'shared/lib/dice';
+import { isMobile } from 'shared/lib/sizes';
 
-import back from '../../../assets/icons/back.svg';
-import { WelcomeGenerator } from '../../../services/dice';
-import { isMobile } from '../../../services/sizes';
-import { BackBtnMobileProps } from './interface';
 import { MobileOverlay } from './style';
 
-const BackBtnMobile: React.FC<BackBtnMobileProps> = ({ title, callback }) => {
+export interface BackBtnMobileProps {
+  title: string;
+  callback: () => void;
+}
+
+export function BackBtnMobile({ title, callback }: BackBtnMobileProps) {
   return (
     <AnimatePresence>
       {isMobile() && !WelcomeGenerator.phrases.includes(title) && (
@@ -27,5 +31,4 @@ const BackBtnMobile: React.FC<BackBtnMobileProps> = ({ title, callback }) => {
       )}
     </AnimatePresence>
   );
-};
-export default BackBtnMobile;
+}
