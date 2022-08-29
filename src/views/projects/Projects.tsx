@@ -68,13 +68,7 @@ const Projects: React.FC = () => {
               alignItems="center"
             >
               <Pointer
-                onClick={() => navigate('/')}
-                initial={{
-                  position: 'fixed',
-                  width: '3500px',
-                  height: '3500px',
-                  color: 'var(--color-gray-200)',
-                }}
+                onClick={() => navigate(ROUTES.home)}
                 animate={{
                   width: 70,
                   height: 70,

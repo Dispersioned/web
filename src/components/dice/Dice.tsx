@@ -113,13 +113,6 @@ const Dice: React.FC<DiceProps> = ({ setTitle }) => {
         dragMomentum={false}
         initial={{ x: -3, y: -3 }}
         animate={animateTo}
-        exit={{
-          position: 'fixed',
-          width: '3500px',
-          height: '3500px',
-          color: 'var(--color-gray-200)',
-          transition: { duration: 0.7 },
-        }}
         onDragStart={handleInitOffset}
         onDragEnd={(event, info) => setPoint({ x: info.point.x, y: info.point.y })}
         dragConstraints={dragWrapper}
