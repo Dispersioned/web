@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Gears = styled.div`
   z-index: 100;
@@ -22,4 +22,4 @@ export const Gears = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;

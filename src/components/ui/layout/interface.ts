@@ -1,3 +1,3 @@
 export interface LayoutProps {
-  title: string
+  title: string;
 }

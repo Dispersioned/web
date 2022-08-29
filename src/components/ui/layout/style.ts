@@ -1,5 +1,5 @@
-import { Typography } from '@mui/material'
-import styled from 'styled-components'
+import { Typography } from '@mui/material';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
     padding-top: 5vh;
   }
   z-index: 1000;
-`
+`;
 
 export const Title = styled(Typography)`
   font-size: 5rem;
@@ -29,4 +29,4 @@ export const Title = styled(Typography)`
   @media (max-width: 767px) {
     font-size: 2.5rem;
   }
-`
+`;

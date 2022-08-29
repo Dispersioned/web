@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion'
-import styled from 'styled-components'
-import { DICE_CELL_SIZE, DICE_SIZE, GAP } from '../../config'
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
+
+import { DICE_CELL_SIZE, DICE_SIZE, GAP } from '../../config';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 export const GridLayer = styled.div`
   position: absolute;
@@ -20,7 +21,7 @@ export const GridLayer = styled.div`
   grid-gap: ${`${GAP}px`};
   grid-template-columns: ${`repeat(3,${`${DICE_CELL_SIZE}px`})`};
   grid-template-rows: ${`repeat(3, ${`${DICE_CELL_SIZE}px`})`};
-`
+`;
 
 export const Pointer = styled(motion.div)`
   display: flex;
@@ -34,4 +35,4 @@ export const Pointer = styled(motion.div)`
   border-radius: 50%;
   position: relative;
   z-index: 1000;
-`
+`;

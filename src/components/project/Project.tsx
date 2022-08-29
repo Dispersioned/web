@@ -1,13 +1,14 @@
-import { Typography } from '@mui/material'
-import React from 'react'
-import { ProjectLink, Tag, Wrapper } from './style'
+import { Typography } from '@mui/material';
+import React from 'react';
+
+import { ProjectLink, Tag, Wrapper } from './style';
 
 interface ProjectProps {
-  title: string
-  description: string
-  tags: string[]
-  link: string
-  imageURL?: string
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  imageURL?: string;
 }
 
 const Project: React.FC<ProjectProps> = ({ title, description, tags, link, imageURL }) => {
@@ -26,6 +27,6 @@ const Project: React.FC<ProjectProps> = ({ title, description, tags, link, image
       </div>
       {imageURL && <img src={imageURL} alt={title} />}
     </Wrapper>
-  )
-}
-export default Project
+  );
+};
+export default Project;

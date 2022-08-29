@@ -1,3 +1,3 @@
 export interface AnimationsProps {
-  shouldShow: boolean
+  shouldShow: boolean;
 }

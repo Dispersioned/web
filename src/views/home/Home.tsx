@@ -1,23 +1,23 @@
-import { Container, Grid } from '@mui/material'
-import { AnimatePresence } from 'framer-motion'
-import React, { useState } from 'react'
+import { Container, Grid } from '@mui/material';
+import { AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
 
-import Animations from '../../components/animations/Animations'
-import Dice from '../../components/dice/Dice'
-import Navigation from '../../components/navigation/Navigation'
-import AboutMe from '../../components/sections/about-me/AboutMe'
-import Experience from '../../components/sections/experience/Experience'
-import Skills from '../../components/sections/skills/Skills'
-import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile'
-import Layout from '../../components/ui/layout/Layout'
-import { SECTIONS } from '../../config'
-import { WelcomeGenerator } from '../../services/dice'
-import { isMobile } from '../../services/sizes'
-import { ContentColumn, ContentDesktop, ContentMobile } from './style'
+import Animations from '../../components/animations/Animations';
+import Dice from '../../components/dice/Dice';
+import Navigation from '../../components/navigation/Navigation';
+import AboutMe from '../../components/sections/about-me/AboutMe';
+import Experience from '../../components/sections/experience/Experience';
+import Skills from '../../components/sections/skills/Skills';
+import BackBtnMobile from '../../components/ui/back-btn-mobile/BackBtnMobile';
+import Layout from '../../components/ui/layout/Layout';
+import { SECTIONS } from '../../config';
+import { WelcomeGenerator } from '../../services/dice';
+import { isMobile } from '../../services/sizes';
+import { ContentColumn, ContentDesktop, ContentMobile } from './style';
 
 const Home: React.FC = () => {
-  const [title, setTitle] = useState('Hello!')
-  const Content = isMobile() ? ContentMobile : ContentDesktop
+  const [title, setTitle] = useState('Hello!');
+  const Content = isMobile() ? ContentMobile : ContentDesktop;
 
   return (
     <Container maxWidth="xl" style={{ overflowX: 'hidden' }}>
@@ -61,6 +61,6 @@ const Home: React.FC = () => {
         </Content>
       </Layout>
     </Container>
-  )
-}
-export default Home
+  );
+};
+export default Home;

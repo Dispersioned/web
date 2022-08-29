@@ -1,4 +1,4 @@
 export interface BackBtnMobileProps {
-  title: string
-  callback: () => void
+  title: string;
+  callback: () => void;
 }

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   background-color: var(--color-gray-100);
   border-radius: 5px;
-`
+`;
 
 export const Background = styled.img`
   position: absolute;
@@ -17,4 +17,4 @@ export const Background = styled.img`
   height: 100%;
   z-index: 50;
   opacity: 0.25;
-`
+`;

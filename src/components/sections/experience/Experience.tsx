@@ -5,20 +5,15 @@ import {
   TimelineDot,
   TimelineItem,
   TimelineOppositeContent,
-  TimelineSeparator
-} from '@mui/lab'
-import { Typography } from '@mui/material'
-import { motion } from 'framer-motion'
-import React from 'react'
+  TimelineSeparator,
+} from '@mui/lab';
+import { Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import React from 'react';
 
 const Experience: React.FC = () => {
   return (
-    <motion.div
-      key="experience-section"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <motion.div key="experience-section" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Timeline>
         <TimelineItem>
           <TimelineOppositeContent style={{ display: 'none' }} />
@@ -52,6 +47,6 @@ const Experience: React.FC = () => {
         </TimelineItem>
       </Timeline>
     </motion.div>
-  )
-}
-export default Experience
+  );
+};
+export default Experience;

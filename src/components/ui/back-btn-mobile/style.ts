@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import styled from 'styled-components'
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 export const MobileOverlay = styled(motion.div)`
   position: fixed;
@@ -17,4 +17,4 @@ export const MobileOverlay = styled(motion.div)`
     border-radius: 7px;
     transform: translateX(-50%);
   }
-`
+`;
