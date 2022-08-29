@@ -12,7 +12,7 @@ const Router: React.FC = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/web" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/*" element={<Navigate replace to="/web" />} />
+        <Route path="*" element={<Navigate replace to="/web" />} />
       </Routes>
     </AnimatePresence>
   )
