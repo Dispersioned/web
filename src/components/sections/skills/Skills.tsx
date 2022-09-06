@@ -10,21 +10,21 @@ export function Skills() {
     'JavaScript',
     'ES6+',
     'TypeScript',
+    'MobX',
+    'Effector',
     'SCSS',
     'Styled Components',
     'Material UI',
-    'Apollo GraphQL',
+    'GraphQL',
     'Git',
     'Figma',
-    'Gulp',
-    'Yarn',
   ];
-  const auxiliarySkills = ['Python', 'Java', 'Netlify CMS', 'Firebase', 'Axios', 'Gatsby'];
+  const auxiliarySkills = ['Redux', 'Gatsby', 'Gulp', 'Netlify', 'Contentful', 'Figma'];
 
   return (
     <motion.div key="skills-section" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Box marginBottom={2}>
-        <Typography variant="h4">Core</Typography>
+        <Typography variant="h4">Core skills</Typography>
         {coreSkills.map((skill) => (
           <SkillItem key={skill} label={skill} />
         ))}
