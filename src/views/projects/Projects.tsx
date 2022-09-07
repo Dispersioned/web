@@ -8,7 +8,7 @@ import { Project } from 'components/project/Project';
 import { BackBtnMobile } from 'components/ui/back-btn-mobile/BackBtnMobile';
 import { motion } from 'framer-motion';
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/config/routes';
 import { SECTIONS } from 'shared/config/sizes';
 import { isMobile } from 'shared/lib/sizes';
