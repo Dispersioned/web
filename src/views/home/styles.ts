@@ -3,8 +3,9 @@ import { Chip, styled } from '@mui/material';
 export const Content = styled('div')`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
   margin-top: 15vh;
+  padding-bottom: 50px; ;
 `;
 
 export const Skills = styled('div')`

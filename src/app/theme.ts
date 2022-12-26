@@ -10,6 +10,7 @@ export const theme = createTheme({
     },
     h5: {
       fontSize: 30,
+      marginBottom: 10,
     },
   },
 });

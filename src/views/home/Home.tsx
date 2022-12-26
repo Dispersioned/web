@@ -1,6 +1,9 @@
 import { Typography } from '@mui/material';
 import globeIcon from 'assets/icons/globe.svg';
-import { Layout } from 'shared/base/layout';
+import loveIcon from 'assets/icons/love.svg';
+import { EducationCard } from 'components/education-card';
+import { Layout } from 'components/layout';
+import { WorkCard } from 'components/work-card';
 
 import { Content, Skill, Skills } from './styles';
 
@@ -38,8 +41,6 @@ export function Home() {
           <Typography variant="h5">Key Skills</Typography>
           <Skills>
             <Skill label="React" />
-            <Skill label="NestJS" />
-            <Skill label="Sequelize" />
             <Skill label="Redux" />
             <Skill label="RTK Query" />
             <Skill label="MobX" />
@@ -54,6 +55,8 @@ export function Home() {
             <Skill label="Git" />
             <Skill label="Figma" />
             <Skill label="Agile" />
+            <Skill label="NestJS" />
+            <Skill label="Sequelize" />
           </Skills>
         </div>
         <div>
@@ -69,7 +72,48 @@ export function Home() {
           <Typography>Able to create adaptive, semantic layout of any complexity.</Typography>
           <Typography>Know OOP, SOLID and data structures. Learning algorithms.</Typography>
           <Typography>Built few simple CRUD backends with NestJS, Sequelize and PostgreSQL.</Typography>
-          <Typography>Absolutely love typescript!</Typography>
+          <Typography component="div" style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
+            Absolutely
+            <img src={loveIcon} alt="#" style={{ width: 30, height: 30 }} />
+            typescript, games and mechanic keyboards.
+          </Typography>
+        </div>
+        <div>
+          <Typography variant="h5">Education</Typography>
+          <EducationCard
+            date={{
+              from: '2020',
+              to: '2024',
+            }}
+            name="Don State Technical University"
+            specialization="Bachelor Computer Science"
+          />
+        </div>
+        <div>
+          <Typography variant="h5">Working Experience</Typography>
+          <WorkCard
+            date={{
+              from: 'May 2022',
+              to: 'Now',
+            }}
+            company='Research institute "Спецвузавтоматика"'
+            experience={[
+              'Created themed web interfaces with React & MobX, Effector, Redux, RTK query.',
+              'Refactored lots of code, participated in cross code review',
+            ]}
+          />
+          <WorkCard
+            date={{
+              from: 'January 2022',
+              to: 'May 2022',
+            }}
+            company='LTD "Южный Герион"'
+            experience={[
+              'Created layouts from Figma with React, scss and Material UI. Adapted UI and refined UX. Writed new features with TS and Apollo GraphQL.',
+              'Worked with rtc: GraphQL subscriptions, socket.io, WebRTC',
+              'Refactored and decomposed large components, optimized ts interfaces',
+            ]}
+          />
         </div>
       </Content>
     </Layout>
