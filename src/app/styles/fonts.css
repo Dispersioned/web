@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'Goudy Bookletter';
+  src: url('assets/fonts/GoudyBookletter/GoudyBookletter1911.woff2') format('woff2'),
+    url('assets/fonts/GoudyBookletter/GoudyBookletter1911.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABeeZee';
+  src: url('assets/fonts/ABeeZee/ABeeZee-Regular.woff2') format('woff2'),
+    url('assets/fonts/ABeeZee/ABeeZee-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('assets/fonts/Lora/Lora-Bold.woff2') format('woff2'), url('assets/fonts/Lora/Lora-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('assets/fonts/Lora/Lora-Regular.woff2') format('woff2'),
+    url('assets/fonts/Lora/Lora-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
