@@ -1,9 +1,15 @@
 import React from 'react';
+import { Navigation } from 'widgets/navigation';
 
-import { UILayout } from './style';
+import { LayoutRoot } from './style';
 
-export type LayoutProps = React.PropsWithChildren;
+type LayoutProps = React.PropsWithChildren;
 
 export function Layout({ children }: LayoutProps) {
-  return <UILayout>{children}</UILayout>;
+  return (
+    <LayoutRoot>
+      <Navigation />
+      <main>{children}</main>
+    </LayoutRoot>
+  );
 }

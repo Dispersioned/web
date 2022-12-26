@@ -1,17 +1,8 @@
-import { Typography, styled } from '@mui/material';
+import { styled } from '@mui/material';
 
-export const UILayout = styled('div')`
-  position: relative;
+export const LayoutRoot = styled('div')`
   display: grid;
-  grid-template-rows: fit-content(100%) fit-content(100%);
-  row-gap: max(40px, 5vw);
-  height: 100vh;
-  padding-top: 10vh;
-  @media (max-width: 1199px) {
-    padding-top: 7vh;
-  }
-  @media (max-width: 991px) {
-    padding-top: 5vh;
-  }
-  z-index: 1000;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+  background-color: #f5f0e9;
 `;
