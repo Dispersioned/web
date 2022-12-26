@@ -5,5 +5,11 @@ export const theme = createTheme({
     allVariants: {
       fontFamily: '"Lora", "Arial", sans-serif',
     },
+    body1: {
+      fontSize: 19,
+    },
+    h5: {
+      fontSize: 30,
+    },
   },
 });

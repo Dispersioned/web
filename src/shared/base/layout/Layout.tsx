@@ -1,15 +1,16 @@
+import { Container } from '@mui/material';
 import React from 'react';
-import { Navigation } from 'widgets/navigation';
 
-import { LayoutRoot } from './style';
+import { UILayout } from './style';
 
 type LayoutProps = React.PropsWithChildren;
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <LayoutRoot>
-      <Navigation />
-      <main>{children}</main>
-    </LayoutRoot>
+    <UILayout>
+      <Container component="main" maxWidth="md" style={{ minHeight: '100vh' }}>
+        {children}
+      </Container>
+    </UILayout>
   );
 }

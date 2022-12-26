@@ -1,8 +1,8 @@
-import { styled } from '@mui/material';
+import { Container, styled } from '@mui/material';
 
-export const LayoutRoot = styled('div')`
-  display: grid;
-  grid-template-columns: 240px 1fr;
+export const UILayout = styled('div')`
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background-color: #f5f0e9;
+  background-color: #f5f5ef;
 `;
