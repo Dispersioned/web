@@ -38,7 +38,7 @@ export function Home() {
           <Typography color="#666">Frontend developer</Typography>
         </div>
         <div>
-          <Typography variant="h5">Key Skills</Typography>
+          <Typography variant="h5">Skills</Typography>
           <Skills>
             <Skill label="React" />
             <Skill label="Redux" />
