@@ -24,9 +24,15 @@ export const Projects = styled('div')`
   position: relative;
 `;
 
+export const ProjectList = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+`;
+
 export const Timeline = styled(Typography)`
   position: absolute;
-  top: 65px;
+  top: 60px;
   left: -60px;
   transform: rotate(-90deg);
   text-align: right;

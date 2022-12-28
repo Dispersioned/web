@@ -25,7 +25,7 @@ export function WorkCard({ date, company, experience }: WorkCardProps) {
       </Typography>
       <Company>{company}</Company>
       {experienceBlocks.map((text) => (
-        <Typography key="text" style={{ marginBottom: 8 }}>
+        <Typography key={text} style={{ marginBottom: 8 }}>
           {text}
         </Typography>
       ))}
