@@ -1,11 +1,12 @@
 import { Typography } from '@mui/material';
+import arrowIcon from 'assets/icons/arrow.svg';
 import globeIcon from 'assets/icons/globe.svg';
 import loveIcon from 'assets/icons/love.svg';
 import { EducationCard } from 'components/education-card';
 import { Layout } from 'components/layout';
 import { WorkCard } from 'components/work-card';
 
-import { Content, Skill, Skills } from './styles';
+import { Content, Projects, Skill, Skills, Timeline } from './styles';
 
 export function Home() {
   return (
@@ -71,7 +72,7 @@ export function Home() {
           <Typography variant="h5">About me</Typography>
           <Typography>Able to create adaptive, semantic layout of any complexity.</Typography>
           <Typography>Know OOP, SOLID and data structures. Learning algorithms.</Typography>
-          <Typography>Built few simple CRUD backends with NestJS, Sequelize and PostgreSQL.</Typography>
+          <Typography>Built few simple CRUD backends with NestJS, Sequelize and Postgres.</Typography>
           <Typography component="div" style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
             Absolutely
             <img src={loveIcon} alt="#" style={{ width: 30, height: 30 }} />
@@ -111,10 +112,17 @@ export function Home() {
             experience={[
               'Created layouts from Figma with React, scss and Material UI. Adapted UI and refined UX. Writed new features with TS and Apollo GraphQL.',
               'Worked with rtc: GraphQL subscriptions, socket.io, WebRTC',
-              'Refactored and decomposed large components, optimized ts interfaces',
+              'Refactored and decomposed large components, fixed ton of ts any',
             ]}
           />
         </div>
+        <Projects>
+          <Typography variant="h5">Projects</Typography>
+          <Timeline component="div">
+            older
+            <img src={arrowIcon} alt="#" />
+          </Timeline>
+        </Projects>
       </Content>
     </Layout>
   );
