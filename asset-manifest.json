@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web/static/css/main.8e8f3fae.css",
-    "main.js": "/web/static/js/main.b737b479.js",
+    "main.js": "/web/static/js/main.e1fb1f51.js",
     "static/media/kovmangal.jpg": "/web/static/media/kovmangal.73969a4695456386fddf.jpg",
     "static/media/zavkomEngineering.jpg": "/web/static/media/zavkomEngineering.991d8ca0b8dfb05652e2.jpg",
     "static/media/cloverly.jpg": "/web/static/media/cloverly.727a47282ccbf39a522a.jpg",
@@ -16,14 +16,15 @@
     "static/media/noicon.svg": "/web/static/media/noicon.61a246c5495414f8a696c45106e8e194.svg",
     "index.html": "/web/index.html",
     "static/media/github.svg": "/web/static/media/github.414aaf43186fdf673b8fbd29b8aac35e.svg",
+    "static/media/telegram.svg": "/web/static/media/telegram.689ef2e35ce9fbeeefed61ee9ff32ed7.svg",
     "static/media/globe.svg": "/web/static/media/globe.17752dcf4a1f22af1141f366304c81cf.svg",
     "static/media/love.svg": "/web/static/media/love.05a5835612d0af9b80081aa623d6d613.svg",
     "static/media/arrow.svg": "/web/static/media/arrow.9b3219ae1da20382f6b02cc21cf8d4b3.svg",
     "main.8e8f3fae.css.map": "/web/static/css/main.8e8f3fae.css.map",
-    "main.b737b479.js.map": "/web/static/js/main.b737b479.js.map"
+    "main.e1fb1f51.js.map": "/web/static/js/main.e1fb1f51.js.map"
   },
   "entrypoints": [
     "static/css/main.8e8f3fae.css",
-    "static/js/main.b737b479.js"
+    "static/js/main.e1fb1f51.js"
   ]
 }
