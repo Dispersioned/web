@@ -43,3 +43,22 @@ export const Timeline = styled(Typography)`
     transform: rotate(180deg);
   }
 ` as typeof Typography;
+
+export const Socials = styled('div')`
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+`;
+
+export const SocialLink = styled('a')`
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;

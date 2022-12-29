@@ -2,6 +2,9 @@ import { Typography } from '@mui/material';
 import arrowIcon from 'assets/icons/arrow.svg';
 import globeIcon from 'assets/icons/globe.svg';
 import loveIcon from 'assets/icons/love.svg';
+import githubIcon from 'assets/icons/social/github.svg';
+import hhIcon from 'assets/icons/social/hh.svg';
+import telegramIcon from 'assets/icons/social/telegram.svg';
 import cloverlyProject from 'assets/images/projects-preview/cloverly.jpg';
 import kovmangalProject from 'assets/images/projects-preview/kovmangal.jpg';
 import zavkomEngineeringProject from 'assets/images/projects-preview/zavkomEngineering.jpg';
@@ -10,23 +13,31 @@ import { Layout } from 'components/layout';
 import { ProjectCard } from 'components/project-card';
 import { WorkCard } from 'components/work-card';
 
-import { Content, ProjectList, Projects, Skill, Skills, Timeline } from './styles';
+import { Content, ProjectList, Projects, Skill, Skills, SocialLink, Socials, Timeline } from './styles';
 
 export function Home() {
   return (
     <Layout>
       <Content>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'baseline',
+            flexWrap: 'wrap',
+            gap: 15,
+          }}
+        >
+          <div>
+            <Typography variant="h3">Maxim Khan</Typography>
+            <Typography color="#666">Frontend developer</Typography>
+          </div>
           <div
             style={{
               display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-              flexWrap: 'wrap',
               gap: 15,
             }}
           >
-            <Typography variant="h3">Maxim Khan</Typography>
             <Typography
               component="div"
               style={{
@@ -39,8 +50,16 @@ export function Home() {
               <img src={globeIcon} alt="#" style={{ width: 30, height: 30 }} />
               Russia, Rostov-on-Don
             </Typography>
+            <SocialLink href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
+              <img src={githubIcon} alt="#" />
+            </SocialLink>
+            {/* <a href="" target="_blank" rel="noreferrer">
+                <img src={hhIcon} alt="#" />
+              </a> */}
+            <SocialLink href="https://t.me/Dispersioned" target="_blank" rel="noreferrer">
+              <img src={telegramIcon} alt="#" />
+            </SocialLink>
           </div>
-          <Typography color="#666">Frontend developer</Typography>
         </div>
         <div>
           <Typography variant="h5">Skills</Typography>
