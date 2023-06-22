@@ -16,8 +16,9 @@ export const Skills = styled('div')`
 `;
 
 export const Skill = styled(Chip)`
-  font-size: 15px;
+  font-size: 19px;
   border-radius: 10px;
+  font-family: inherit;
 `;
 
 export const Projects = styled('div')`
