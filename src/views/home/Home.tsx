@@ -53,9 +53,13 @@ export function Home() {
             <SocialLink href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
               <img src={githubIcon} alt="#" />
             </SocialLink>
-            {/* <a href="" target="_blank" rel="noreferrer">
-                <img src={hhIcon} alt="#" />
-              </a> */}
+            <SocialLink
+              href="https://rostov.hh.ru/resume/23e5510fff09055f900039ed1f327579537633"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={hhIcon} alt="#" />
+            </SocialLink>
             <SocialLink href="https://t.me/Dispersioned" target="_blank" rel="noreferrer">
               <img src={telegramIcon} alt="#" />
             </SocialLink>
