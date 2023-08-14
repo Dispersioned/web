@@ -13,7 +13,7 @@ import { Layout } from 'components/layout';
 import { ProjectCard } from 'components/project-card';
 import { WorkCard } from 'components/work-card';
 
-import { Content, ProjectList, Projects, Skill, Skills, SocialLink, Socials, Timeline } from './styles';
+import { Content, ProjectList, Projects, Skill, Skills, SocialLink, Timeline } from './styles';
 
 export function Home() {
   const skills = [
