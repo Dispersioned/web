@@ -9,9 +9,22 @@ type LayoutProps = React.PropsWithChildren;
 export function Layout({ children }: LayoutProps) {
   return (
     <UILayout>
-      <Container component="main" maxWidth="md" style={{ minHeight: '100vh' }}>
-        <IntroAnimation>{children}</IntroAnimation>
-      </Container>
+      <IntroAnimation>
+        <Container
+          component="main"
+          maxWidth="md"
+          style={{
+            minHeight: '100vh',
+            background: 'rgba(216, 205, 197, 0.4)',
+            padding: '0 36px',
+            borderWidth: '0 2px',
+            borderStyle: 'solid',
+            borderImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.05)) 1 100%',
+          }}
+        >
+          {children}
+        </Container>
+      </IntroAnimation>
     </UILayout>
   );
 }

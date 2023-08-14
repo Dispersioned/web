@@ -8,8 +8,8 @@ export function shouldPlayAnimation() {
   const date = new Date(parseInt(dateStr, 10));
   const diff = Date.now() - +date;
 
-  // 10 minutes
-  const limit = 1000 * 60 * 10;
+  // 3 minutes
+  const limit = 1000 * 60 * 3;
 
   return diff > limit;
 }

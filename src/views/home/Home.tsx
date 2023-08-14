@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import arrowIcon from 'assets/icons/arrow.svg';
 import globeIcon from 'assets/icons/globe.svg';
 import loveIcon from 'assets/icons/love.svg';
 import githubIcon from 'assets/icons/social/github.svg';
@@ -14,7 +13,7 @@ import { ProjectCard } from 'components/project-card';
 import { WorkCard } from 'components/work-card';
 import { motion } from 'framer-motion';
 
-import { Content, ProjectList, Projects, Skill, Skills, SocialLink, Timeline } from './styles';
+import { Content, ProjectList, Projects, Skill, Skills, SocialLink } from './styles';
 
 export function Home() {
   const skills = [
@@ -41,7 +40,7 @@ export function Home() {
 
   return (
     <Layout>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
         <Content>
           <div
             style={{
@@ -157,10 +156,6 @@ export function Home() {
           <Projects>
             <Typography variant="h5">Projects</Typography>
             <ProjectList>
-              <Timeline component="div">
-                older
-                <img src={arrowIcon} alt="#" />
-              </Timeline>
               <ProjectCard
                 name="WebRTC video chat"
                 description="Reworked fork. Tried to improve abilities of complex async logic in react flow through refs without stm"

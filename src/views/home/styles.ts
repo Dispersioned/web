@@ -31,20 +31,6 @@ export const ProjectList = styled('div')`
   gap: 25px;
 `;
 
-export const Timeline = styled(Typography)`
-  position: absolute;
-  top: 60px;
-  left: -60px;
-  transform: rotate(-90deg);
-  text-align: right;
-
-  img {
-    width: 50px;
-    object-fit: fill;
-    transform: rotate(180deg);
-  }
-` as typeof Typography;
-
 export const Socials = styled('div')`
   display: flex;
   justify-content: flex-end;
