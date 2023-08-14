@@ -1,19 +1,17 @@
 import { Typography } from '@mui/material';
 import globeIcon from 'assets/icons/globe.svg';
 
-export function Location() {
+import { UILocation } from './styles';
+
+type LocationProps = {
+  location: string;
+};
+
+export function Location({ location }: LocationProps) {
   return (
-    <Typography
-      component="div"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 5,
-        fontSize: 17,
-      }}
-    >
+    <UILocation>
       <img src={globeIcon} alt="#" style={{ width: 30, height: 30 }} />
-      Russia, Rostov-on-Don
-    </Typography>
+      <Typography fontSize={17}>{location}</Typography>
+    </UILocation>
   );
 }

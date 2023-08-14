@@ -9,9 +9,10 @@ import { ProjectCard } from 'components/project-card';
 import { WorkCard } from 'components/work-card';
 import { motion } from 'framer-motion';
 
+import { Email } from './Email';
 import { Location } from './Location';
 import { Socials } from './Socials';
-import { Content, ProjectList, Projects, Skill, Skills, SocialLink } from './styles';
+import { Content, ProjectList, Projects, Skill, Skills } from './styles';
 
 export function Home() {
   const skills = [
@@ -52,14 +53,25 @@ export function Home() {
             <div>
               <Typography variant="h3">Maxim Khan</Typography>
               <Typography fontWeight={600}>Frontend react developer</Typography>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 20,
+                  marginTop: 20,
+                }}
+              >
+                <Location location="Russia, Rostov-on-Don" />
+                <Email email="rocketgo1672@gmail.com" />
+              </div>
             </div>
             <div
               style={{
                 display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-end',
                 gap: 15,
               }}
             >
-              <Location />
               <Socials />
             </div>
           </div>
