@@ -39,7 +39,12 @@ export function Home() {
 
   return (
     <Layout>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
+      <motion.div
+        initial={{ opacity: 0, top: -30 }}
+        animate={{ opacity: 1, top: 0 }}
+        transition={{ duration: 0.7 }}
+        style={{ position: 'relative' }}
+      >
         <Content>
           <div
             style={{
@@ -52,7 +57,9 @@ export function Home() {
           >
             <div>
               <Typography variant="h3">Maxim Khan</Typography>
-              <Typography fontWeight={600}>Frontend react developer</Typography>
+              <Typography fontSize={20} fontWeight={600} textTransform="capitalize">
+                Frontend developer
+              </Typography>
               <div
                 style={{
                   display: 'flex',
