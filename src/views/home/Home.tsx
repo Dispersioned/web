@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import globeIcon from 'assets/icons/globe.svg';
 import loveIcon from 'assets/icons/love.svg';
 import githubIcon from 'assets/icons/social/github.svg';
 import hhIcon from 'assets/icons/social/hh.svg';
@@ -13,6 +12,7 @@ import { ProjectCard } from 'components/project-card';
 import { WorkCard } from 'components/work-card';
 import { motion } from 'framer-motion';
 
+import { Location } from './Location';
 import { Content, ProjectList, Projects, Skill, Skills, SocialLink } from './styles';
 
 export function Home() {
@@ -53,7 +53,7 @@ export function Home() {
           >
             <div>
               <Typography variant="h3">Maxim Khan</Typography>
-              <Typography color="#666">Frontend developer</Typography>
+              <Typography fontWeight={600}>Frontend react developer</Typography>
             </div>
             <div
               style={{
@@ -61,18 +61,7 @@ export function Home() {
                 gap: 15,
               }}
             >
-              <Typography
-                component="div"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 5,
-                  fontSize: 17,
-                }}
-              >
-                <img src={globeIcon} alt="#" style={{ width: 30, height: 30 }} />
-                Russia, Rostov-on-Don
-              </Typography>
+              <Location />
               <SocialLink href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
                 <img src={githubIcon} alt="#" />
               </SocialLink>
