@@ -5,7 +5,7 @@ export const Content = styled('div')`
   flex-direction: column;
   gap: 25px;
   margin-top: 15vh;
-  padding-bottom: 50px; ;
+  padding-bottom: 50px;
 `;
 
 export const Skills = styled('div')`
