@@ -32,7 +32,28 @@
     <link rel="prefetch" href="%PUBLIC_URL%/images/loader.svg" />
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <style>
+        .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: calc(100vw - 32px);
+          height: calc(100vh - 32px);
+          font-family: 'Arial', sans-serif;
+        }
+      </style>
+      <div class="container">
+        <div>
+          <h1>Seems like JavaScript is disabled in your browser</h1>
+          <p>Sadly my website uses React framework to show you cool animations and styles.</p>
+          <p>
+            You can either enable JS or just
+            <a donwload="Maxim_Khan_CV.pdf" href="%PUBLIC_URL%/files/cv.pdf" target="_blank">download my cv</a>.
+          </p>
+        </div>
+      </div>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>
