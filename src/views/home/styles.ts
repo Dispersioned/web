@@ -1,4 +1,4 @@
-import { Chip, Typography, styled } from '@mui/material';
+import { Chip, styled } from '@mui/material';
 
 export const Content = styled('div')`
   display: flex;
