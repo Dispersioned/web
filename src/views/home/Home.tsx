@@ -1,8 +1,5 @@
 import { Typography } from '@mui/material';
 import loveIcon from 'assets/icons/love.svg';
-import githubIcon from 'assets/icons/social/github.svg';
-import hhIcon from 'assets/icons/social/hh.svg';
-import telegramIcon from 'assets/icons/social/telegram.svg';
 import cloverlyProject from 'assets/images/projects-preview/cloverly.jpg';
 import kovmangalProject from 'assets/images/projects-preview/kovmangal.jpg';
 import zavkomEngineeringProject from 'assets/images/projects-preview/zavkomEngineering.jpg';
@@ -13,6 +10,7 @@ import { WorkCard } from 'components/work-card';
 import { motion } from 'framer-motion';
 
 import { Location } from './Location';
+import { Socials } from './Socials';
 import { Content, ProjectList, Projects, Skill, Skills, SocialLink } from './styles';
 
 export function Home() {
@@ -62,19 +60,7 @@ export function Home() {
               }}
             >
               <Location />
-              <SocialLink href="https://github.com/Dispersioned" target="_blank" rel="noreferrer">
-                <img src={githubIcon} alt="#" />
-              </SocialLink>
-              <SocialLink
-                href="https://rostov.hh.ru/resume/23e5510fff09055f900039ed1f327579537633"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src={hhIcon} alt="#" />
-              </SocialLink>
-              <SocialLink href="https://t.me/Dispersioned" target="_blank" rel="noreferrer">
-                <img src={telegramIcon} alt="#" />
-              </SocialLink>
+              <Socials />
             </div>
           </div>
           <div>
