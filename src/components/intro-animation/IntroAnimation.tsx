@@ -23,7 +23,7 @@ export function IntroAnimation({ children }: IntroAnimationProps) {
     return () => {
       clearTimeout(timeout);
     };
-  }, []);
+  }, [shouldPlay]);
 
   if (shouldPlay) {
     return (

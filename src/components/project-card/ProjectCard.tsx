@@ -1,7 +1,6 @@
 import { Typography, styled } from '@mui/material';
 import noiconIcon from 'assets/icons/noicon.svg';
 import githubIcon from 'assets/icons/social/github.svg';
-import React from 'react';
 import { Skill, Skills } from 'views/home/styles';
 
 type ProjectCardProps = {

@@ -1,4 +1,4 @@
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import emailIcon from 'assets/icons/email.svg';
 
 import { EmailLink, UIEmail } from './styles';
