@@ -1,19 +1,16 @@
 import { Typography } from '@mui/material';
 import loveIcon from 'assets/icons/love.svg';
-import cloverlyProject from 'assets/images/projects-preview/cloverly.jpg';
-import kovmangalProject from 'assets/images/projects-preview/kovmangal.jpg';
-import zavkomEngineeringProject from 'assets/images/projects-preview/zavkomEngineering.jpg';
 import { EducationCard } from 'components/education-card';
 import { Layout } from 'components/layout';
 import { ProjectCard } from 'components/project-card';
 import { WorkCard } from 'components/work-card';
 import { motion } from 'framer-motion';
 
+import { EXPERIENCE, PROJECTS, SKILLS } from 'config/myself';
 import { Email } from './Email';
 import { Location } from './Location';
 import { Socials } from './Socials';
 import { Content, Heading, Meta, ProjectList, Projects, Skill, Skills } from './styles';
-import { EXPERIENCE, SKILLS } from 'config/myself';
 
 export function Home() {
   return (
@@ -77,38 +74,9 @@ export function Home() {
           <Projects>
             <Typography variant='h5'>Projects</Typography>
             <ProjectList>
-              <ProjectCard
-                name='WebRTC video chat'
-                description='Reworked fork. Tried to improve abilities of complex async logic in react flow through refs without stm'
-                tags={['React', 'TypeScript', 'Material UI']}
-                deployLink='https://dispersioned.github.io/video-chat-webrtc/'
-                githubLink='https://github.com/Dispersioned/video-chat-webrtc'
-                info='backend offline'
-              />
-              <ProjectCard
-                name='Kovmangal'
-                description='Forged chargrill store'
-                tags={['Layout', 'HTML', 'SCSS', 'Gulp']}
-                imgSrc={kovmangalProject}
-                deployLink='https://dispersioned.github.io/web-kovmangal/'
-                githubLink='https://github.com/Dispersioned/web-kovmangal'
-              />
-              <ProjectCard
-                name='Zavkom Engineering'
-                description='Company website'
-                tags={['Layout', 'HTML', 'SCSS', 'Gulp']}
-                imgSrc={zavkomEngineeringProject}
-                deployLink='https://dispersioned.github.io/web-zavkom-engineering/'
-                githubLink='https://github.com/Dispersioned/web-zavkom-engineering'
-              />
-              <ProjectCard
-                name='Cloverly'
-                description='API platform to help neutralize carbon emissions'
-                tags={['Layout', 'HTML', 'SCSS', 'Gulp']}
-                imgSrc={cloverlyProject}
-                deployLink='https://dispersioned.github.io/web-cloverly/'
-                githubLink='https://github.com/Dispersioned/web-cloverly'
-              />
+              {PROJECTS.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+              ))}
             </ProjectList>
           </Projects>
         </Content>

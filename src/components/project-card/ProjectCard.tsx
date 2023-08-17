@@ -3,22 +3,24 @@ import noiconIcon from 'assets/icons/noicon.svg';
 import githubIcon from 'assets/icons/social/github.svg';
 import { Skill, Skills } from 'views/home/styles';
 import { UICard, ProjectImage, DeployLink, GithubLink, Description } from './styles';
+import { IProject } from 'shared/types';
 
 type ProjectCardProps = {
-  name: string;
-  description: string;
-  tags: string[];
-  imgSrc?: string;
-  deployLink: string;
-  githubLink: string;
-  info?: string;
+  project: IProject;
 };
 
-export function ProjectCard({ name, description, tags, imgSrc, info, deployLink, githubLink }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
+  const {
+    name,
+    description,
+    tags,
+    preview,
+    metalinks: { deploy, github },
+  } = project;
   return (
     <UICard>
-      {imgSrc ? (
-        <ProjectImage src={imgSrc} alt='#' />
+      {preview ? (
+        <ProjectImage src={preview} alt='#' />
       ) : (
         <div
           style={{
@@ -34,20 +36,17 @@ export function ProjectCard({ name, description, tags, imgSrc, info, deployLink,
       )}
       <Description>
         <div>
-          <DeployLink href={deployLink} component='a' target='_blank' rel='noreferrer'>
+          <DeployLink href={deploy} component='a' target='_blank' rel='noreferrer'>
             {name}
           </DeployLink>
           <Typography color='#666'>{description}</Typography>
-          <Typography color='darkred' fontStyle='italic'>
-            {info}
-          </Typography>
           <Skills>
             {tags.map((tag) => (
               <Skill key={tag} label={tag} />
             ))}
           </Skills>
         </div>
-        <GithubLink href={githubLink} target='_blank' rel='noreferrer'>
+        <GithubLink href={github} target='_blank' rel='noreferrer'>
           <img src={githubIcon} alt='#' />
         </GithubLink>
       </Description>
