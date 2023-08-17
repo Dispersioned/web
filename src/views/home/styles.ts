@@ -4,8 +4,23 @@ export const Content = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 25px;
-  margin-top: 15vh;
+  margin-top: 12vw;
   padding-bottom: 50px;
+`;
+
+export const Heading = styled('header')`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 20px 15px;
+`;
+
+export const Meta = styled('div')`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 20px;
 `;
 
 export const Skills = styled('div')`

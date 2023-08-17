@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import { Email } from './Email';
 import { Location } from './Location';
 import { Socials } from './Socials';
-import { Content, ProjectList, Projects, Skill, Skills } from './styles';
+import { Content, Heading, Meta, ProjectList, Projects, Skill, Skills } from './styles';
 import { EXPERIENCE, SKILLS } from 'config/myself';
 
 export function Home() {
@@ -24,39 +24,19 @@ export function Home() {
         transition={{ duration: 0.7 }}
         style={{ position: 'relative' }}>
         <Content>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-              flexWrap: 'wrap',
-              gap: 15,
-            }}>
+          <Heading>
             <div>
               <Typography variant='h3'>Maxim Khan</Typography>
               <Typography fontSize={20} fontWeight={600} textTransform='capitalize'>
                 Frontend developer
               </Typography>
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 20,
-                  marginTop: 20,
-                }}>
+              <Meta>
                 <Location location='Russia, Rostov-on-Don' />
                 <Email email='rocketgo1672@gmail.com' />
-              </div>
+              </Meta>
             </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                gap: 15,
-              }}>
-              <Socials />
-            </div>
-          </div>
+            <Socials />
+          </Heading>
           <div>
             <Typography variant='h5'>Skills</Typography>
             <Skills>

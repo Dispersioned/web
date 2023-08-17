@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 
-import { Company } from './style';
+import { Company, UIWorkCard } from './style';
 import { IWorkingExperience } from 'shared/types';
 
 type WorkCardProps = {
@@ -11,7 +11,7 @@ export function WorkCard({ experience }: WorkCardProps) {
   const { company, date, experience: workingExperience } = experience;
 
   return (
-    <div style={{ marginBottom: 20 }}>
+    <UIWorkCard>
       <Typography color='#666' fontStyle='italic'>
         {date.from} — {date.to}
       </Typography>
@@ -21,6 +21,6 @@ export function WorkCard({ experience }: WorkCardProps) {
           {text}
         </Typography>
       ))}
-    </div>
+    </UIWorkCard>
   );
 }
