@@ -11,6 +11,7 @@ export default defineConfig({
       assets: '/src/assets',
       views: '/src/views',
       config: '/src/config',
+      shared: '/src/shared',
     },
   },
 });

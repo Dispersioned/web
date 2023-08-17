@@ -1,29 +1,22 @@
 import { Typography } from '@mui/material';
 
 import { Company } from './style';
+import { IWorkingExperience } from 'shared/types';
 
 type WorkCardProps = {
-  date: {
-    from: string;
-    to: string;
-  };
-  company: string;
-  experience: string | string[];
+  experience: IWorkingExperience;
 };
 
-export function WorkCard({ date, company, experience }: WorkCardProps) {
-  let experienceBlocks: string[];
-
-  if (Array.isArray(experience)) experienceBlocks = experience;
-  else experienceBlocks = [experience];
+export function WorkCard({ experience }: WorkCardProps) {
+  const { company, date, experience: workingExperience } = experience;
 
   return (
     <div style={{ marginBottom: 20 }}>
-      <Typography color="#666" fontStyle="italic">
+      <Typography color='#666' fontStyle='italic'>
         {date.from} — {date.to}
       </Typography>
       <Company>{company}</Company>
-      {experienceBlocks.map((text) => (
+      {workingExperience.map((text) => (
         <Typography key={text} style={{ marginBottom: 8 }}>
           {text}
         </Typography>
